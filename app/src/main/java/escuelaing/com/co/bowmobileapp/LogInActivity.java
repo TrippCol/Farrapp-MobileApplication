@@ -18,6 +18,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -60,7 +61,9 @@ public class LogInActivity extends AppCompatActivity implements LoaderManager.Lo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_log_in);
+
         componentsInitialization();
         actionListenersInitialization();
 
@@ -94,7 +97,7 @@ public class LogInActivity extends AppCompatActivity implements LoaderManager.Lo
         } else {
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
         }*/
-        return true;
+        return false;
     }
 
 
@@ -110,6 +113,8 @@ public class LogInActivity extends AppCompatActivity implements LoaderManager.Lo
         populateAutoComplete();
 
         mPasswordView =  findViewById(R.id.password);
+
+
         buttonBack = (Button) findViewById((R.id.buttonBack));
 
         mLoginFormView = findViewById(R.id.login_form);

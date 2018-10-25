@@ -18,6 +18,7 @@ public class InitialActivity extends AppCompatActivity {
         componentsInitialization();
         actionListenersInitialization();
 
+
     }
 
     void componentsInitialization() {
