@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class SignInActivity extends AppCompatActivity {
 
     Button buttonBack;
-
+    Button signUpButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class SignInActivity extends AppCompatActivity {
 
     void componentsInitialization() {
         buttonBack = (Button) findViewById((R.id.buttonBack));
+        signUpButton= (Button) findViewById(R.id.signUpButton);
     }
 
     void actionListenersInitialization() {
@@ -30,6 +31,13 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                finish();
+            }
+        });
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(SignInActivity.this,LogInActivity.class );
+                startActivity(intent);
             }
         });
     }
