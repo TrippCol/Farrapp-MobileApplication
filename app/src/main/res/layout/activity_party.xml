@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView3"
+        android:id="@+id/partyScrollView"
         android:layout_width="368dp"
         android:layout_height="533dp"
         android:layout_marginStart="8dp"
@@ -43,10 +43,6 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/normalSignUp"
@@ -200,7 +196,7 @@
                             android:layout_height="match_parent">
 
                             <Button
-                                android:id="@+id/button"
+                                android:id="@+id/bookButton"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="#ff0004"
