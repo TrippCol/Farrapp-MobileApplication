@@ -39,7 +39,7 @@ public class InitialActivity extends AppCompatActivity {
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(InitialActivity.this,LogInActivity.class );
+                Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
                 startActivity(intent);
             }
         });

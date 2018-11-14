@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class LogInActivity extends AppCompatActivity {
+public class PartyListActivity extends AppCompatActivity {
     Button buttonBack;
 
     Button partyRock;
@@ -19,7 +19,7 @@ public class LogInActivity extends AppCompatActivity {
     }
     void componentsInitialization() {
         buttonBack = (Button) findViewById((R.id.buttonBack));
-        partyRock = (Button) findViewById(R.id.eciButton);
+        partyRock = (Button) findViewById(R.id.partyButton);
 
     }
 
@@ -34,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
         partyRock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(LogInActivity.this,PartyActivity.class );
+                Intent intent= new Intent(PartyListActivity.this,PartyActivity.class );
                 startActivity(intent);
             }
         });

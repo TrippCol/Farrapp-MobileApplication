@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrounddiscolon"
-    tools:context=".InitialActivity">
+
+    tools:context=".InitialActivity"
+
+    >
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="380dp"
+        android:layout_width="378dp"
         android:layout_height="558dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bakgr2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,29 +23,30 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="321dp"
-            android:layout_height="132dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="32dp"
+            android:id="@+id/logoBow"
+            android:layout_width="320dp"
+            android:layout_height="171dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bow_logo" />
+            app:srcCompat="@drawable/bow32" />
 
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="622dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/logoBow">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,15 +58,16 @@
                     android:id="@+id/normalSignUp"
                     android:layout_width="283dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="56dp"
-                    android:layout_marginEnd="6dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="6dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="10dp"
                     app:cardBackgroundColor="@android:color/white"
                     app:cardCornerRadius="40dp"
-                    app:cardPreventCornerOverlap="false"
+                    app:cardElevation="10dp"
+                    app:cardPreventCornerOverlap="true"
                     app:layout_constraintBottom_toTopOf="@+id/passwordSignUp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.471"
@@ -82,18 +87,18 @@
                                 android:id="@+id/signUpText"
                                 android:layout_width="140dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginLeft="8dp"
-                                android:layout_marginRight="8dp"
                                 android:layout_marginStart="8dp"
+                                android:layout_marginLeft="8dp"
                                 android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginRight="8dp"
                                 android:gravity="center"
                                 android:text="Log in"
                                 android:textAllCaps="false"
                                 android:textColor="#000000"
                                 android:textSize="24sp"
                                 android:textStyle="bold"
-                                app:fontFamily="sans-serif-smallcaps"
+                                app:fontFamily="@font/montserrat"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -118,7 +123,7 @@
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:typeface="monospace" />
+                                android:typeface="normal" />
                         </TableRow>
 
                         <TableRow
@@ -148,7 +153,7 @@
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:typeface="monospace" />
+                                android:typeface="normal" />
                         </TableRow>
 
                         <TableRow
@@ -168,13 +173,17 @@
 
                             <Button
                                 android:id="@+id/buttonLogIn"
-                                android:layout_width="136dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="0dp"
+                                android:layout_width="63dp"
+                                android:layout_height="45dp"
                                 android:layout_marginStart="0dp"
-                                android:background="@color/colorAccent"
-                                android:text="Log In"
+                                android:layout_marginLeft="0dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="@drawable/rectangle_button"
+                                android:text="Continue"
+                                android:textColor="#F1EA94"
+                                android:textSize="16sp"
+                                android:textStyle="bold|italic"
+                                android:typeface="sans"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent" />
                         </TableRow>
@@ -183,40 +192,47 @@
 
                 </android.support.v7.widget.CardView>
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#b3000000"
-                    android:gravity="top|center"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="18dp">
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="OR"
-                        android:textSize="24sp"
-                        android:textStyle="bold|italic"
-                        android:typeface="sans"
-                        app:fontFamily="monospace" />
+                    <LinearLayout
+                        android:layout_width="165dp"
+                        android:layout_height="72dp"
+                        android:gravity="top|center"
+                        android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/buttonSignUp"
-                        android:layout_width="123dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="0dp"
-                        android:layout_marginRight="0dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@color/colorPrimary"
-                        android:gravity="center"
-                        android:text="Sign Up"
-                        android:textColor="@android:color/background_light"
-                        android:textStyle="normal|bold|italic"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        <TextView
+                            android:id="@+id/or"
+                            android:layout_width="115dp"
+                            android:layout_height="wrap_content"
+                            android:background="#00ff0000"
+                            android:gravity="center"
+                            android:text="Or"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/montserrat" />
 
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/buttonSignUp"
+                            android:layout_width="155dp"
+                            android:layout_height="37dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/urbon"
+                            android:gravity="center"
+                            android:text="Sign Up"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="10sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
 
                 <Space
                     android:layout_width="match_parent"

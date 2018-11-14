@@ -19,9 +19,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignInActivity" />
-        <activity android:name=".LogInActivity" />
+        <activity android:name=".PartyListActivity" />
         <activity android:name=".PartyActivity" />
         <activity android:name=".BookActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

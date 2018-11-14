@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/party_background"
+    android:background="@drawable/bkg"
     tools:context=".PartyActivity">
 
     <Button
         android:id="@+id/buttonBack"
-        android:layout_width="57dp"
-        android:layout_height="32dp"
+        android:layout_width="81dp"
+        android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/red_arrow"
+        android:background="@drawable/left_arrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,13 +24,10 @@
 
     <ScrollView
         android:id="@+id/partyScrollView"
-        android:layout_width="368dp"
-        android:layout_height="533dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="390dp"
+        android:layout_height="471dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,21 +38,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:gravity="left"
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/normalSignUp"
-                android:layout_width="456dp"
-                android:layout_height="430dp"
+                android:layout_width="347dp"
+                android:layout_height="426dp"
                 android:layout_gravity="center"
-                android:layout_margin="56dp"
+                android:layout_margin="0dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="6dp"
-                app:cardBackgroundColor="#ad0077ff"
-                app:cardCornerRadius="180dp"
+                android:layout_marginRight="0dp"
+                app:cardBackgroundColor="#d60077ff"
+                app:cardCornerRadius="50dp"
                 app:cardPreventCornerOverlap="false"
-                app:contentPadding="50dp"
+                app:contentPadding="0dp"
                 app:layout_constraintBottom_toTopOf="@+id/passwordSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -63,45 +60,35 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TableLayout
-                    android:layout_width="367dp"
-                    android:layout_height="325dp"
-                    android:gravity="center">
+                    android:layout_width="333dp"
+                    android:layout_height="470dp"
+                    android:gravity="top|center">
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="left|center"
-                        android:gravity="center_horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="match_parent"
-                            android:layout_height="141dp"
-                            app:srcCompat="@drawable/header_party" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
                         android:background="#96ffffff"
                         android:gravity="center_horizontal">
 
                         <TextView
-                            android:id="@+id/signUpText"
-                            android:layout_width="140dp"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/partyText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
-                            android:gravity="center"
+                            android:background="@drawable/header_party"
+                            android:gravity="top|center_horizontal"
                             android:text="Eci Super Party"
                             android:textAllCaps="false"
                             android:textColor="#000000"
-                            android:textSize="30sp"
+                            android:textSize="36sp"
                             android:textStyle="bold"
-                            app:fontFamily="sans-serif-smallcaps"
+                            app:fontFamily="@font/montserrat"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -114,7 +101,7 @@
                         android:gravity="left|center">
 
                         <TextView
-                            android:id="@+id/signUpText4"
+                            android:id="@+id/partyDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -140,7 +127,7 @@
                         android:gravity="left|center">
 
                         <TextView
-                            android:id="@+id/signUpText5"
+                            android:id="@+id/partyAddress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -161,12 +148,38 @@
                     </TableRow>
 
                     <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:gravity="left|center">
 
                         <TextView
-                            android:id="@+id/signUpText6"
+                            android:id="@+id/partyPlace"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="left|center"
+                            android:text="Escuela Colombiana de ingeniería Julio Garavito"
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            app:fontFamily="sans-serif-smallcaps"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center">
+
+                        <TextView
+                            android:id="@+id/partyPrice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -187,26 +200,79 @@
                     </TableRow>
 
                     <TableRow
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center">
+                        android:layout_width="match_parent"
+                        android:layout_height="156dp"
+                        android:gravity="left|center">
 
-                        <FrameLayout
-                            android:layout_width="4sp"
-                            android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/partyDesc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="left|center"
+                            android:paddingBottom="20dp"
+                            android:text="Una increíble fiesta organizada por los estudiantes de ingeniería de sistemas de la universidad, la idea es unir a los estudiantes en actividades lúdicas, y recoger fondos para nuevos equipos."
+                            android:textAllCaps="false"
+                            android:textColor="#000000"
+                            android:textSize="12sp"
+                            android:textStyle="normal"
+                            app:fontFamily="@font/baumans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="top|left">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/desc2Party"
+                                android:layout_width="145dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_weight="1"
+                                android:gravity="left|center"
+                                android:paddingBottom="20dp"
+                                android:text="      +12 Años"
+                                android:textAllCaps="false"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                android:textStyle="normal"
+                                app:fontFamily="@font/montserrat"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <Button
                                 android:id="@+id/bookButton"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="#ff0004"
-                                android:text="Book me!"
+                                android:layout_width="200dp"
+                                android:layout_height="43dp"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/button_app"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Reservar"
                                 android:textAllCaps="true"
                                 android:textColor="@android:color/black"
                                 android:textSize="18sp"
-                                android:textStyle="normal|bold"
-                                android:typeface="monospace" />
-                        </FrameLayout>
+                                android:textStyle="normal|bold" />
+
+                        </LinearLayout>
 
                     </TableRow>
 
@@ -223,16 +289,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="83dp"
-        android:layout_height="64dp"
+        android:layout_width="208dp"
+        android:layout_height="94dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toEndOf="@+id/buttonBack"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bowlogotrlucent" />
+        app:srcCompat="@drawable/bow32" />
 
 </android.support.constraint.ConstraintLayout>
