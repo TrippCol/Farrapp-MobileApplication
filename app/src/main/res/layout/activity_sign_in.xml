@@ -253,10 +253,10 @@
                                 android:id="@+id/signUpButton"
                                 android:layout_width="219dp"
                                 android:layout_height="41dp"
-                                android:background="@drawable/red_button"
+                                android:background="@drawable/rectangle_button"
                                 android:text="Registrar"
                                 android:textAllCaps="true"
-                                android:textColor="#F1EA94"
+                                android:textColor="#535353"
                                 android:textSize="14sp"
                                 android:textStyle="normal|italic" />
                         </TableRow>

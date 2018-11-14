@@ -41,9 +41,13 @@
             android:gravity="left"
             android:orientation="vertical">
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="35dp" />
+
             <android.support.v7.widget.CardView
                 android:layout_width="347dp"
-                android:layout_height="426dp"
+                android:layout_height="475dp"
                 android:layout_gravity="center"
                 android:layout_margin="0dp"
                 android:layout_marginStart="8dp"
@@ -178,31 +182,47 @@
                         android:layout_height="match_parent"
                         android:gravity="left|center">
 
-                        <TextView
-                            android:id="@+id/partyPrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginRight="8dp"
-                            android:gravity="left|center"
-                            android:text="$10.000 COP"
-                            android:textAllCaps="false"
-                            android:textColor="#000000"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:fontFamily="sans-serif-smallcaps"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/partyPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginRight="8dp"
+                                android:gravity="left|center"
+                                android:text="$10.000 COP"
+                                android:textAllCaps="false"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                app:fontFamily="sans-serif-smallcaps"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <RatingBar
+                                android:id="@+id/ratingBar"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="#8c008397"
+                                android:rating="3" />
+
+                        </LinearLayout>
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="156dp"
-                        android:gravity="left|center">
+                        android:gravity="left">
 
                         <TextView
                             android:id="@+id/partyDesc"

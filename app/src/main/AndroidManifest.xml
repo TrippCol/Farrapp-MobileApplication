@@ -21,11 +21,13 @@
         <activity android:name=".SignInActivity" />
         <activity android:name=".PartyListActivity" />
         <activity android:name=".PartyActivity" />
-        <activity android:name=".BookActivity"></activity>
+        <activity android:name=".BookActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".ConfirmationActivity"></activity>
     </application>
 
 </manifest>
