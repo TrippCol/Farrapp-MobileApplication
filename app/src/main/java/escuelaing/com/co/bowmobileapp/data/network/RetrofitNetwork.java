@@ -1,10 +1,13 @@
 package escuelaing.com.co.bowmobileapp.data.network;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import escuelaing.com.co.bowmobileapp.data.entities.LoginWrapper;
+import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.entities.Token;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -52,6 +55,27 @@ public class RetrofitNetwork
             }
         } );
 
+    }
+
+    @Override
+    public void getParties(final RequestCallback<Map<Integer,Party>> requestCallback) {
+        backgroundExecutor.execute( new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                Call<Map<Integer,Party>> call = networkService.getParties();
+                try
+                {
+                    Response<Map<Integer,Party>> execute = call.execute();
+                    requestCallback.onSuccess( execute.body() );
+                }
+                catch ( IOException e )
+                {
+                    requestCallback.onFailed( new NetworkException( null, e ) );
+                }
+            }
+        } );
     }
 
 }

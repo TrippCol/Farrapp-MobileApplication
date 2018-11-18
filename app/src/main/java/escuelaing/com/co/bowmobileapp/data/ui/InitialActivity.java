@@ -15,7 +15,7 @@ import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
 import escuelaing.com.co.bowmobileapp.data.network.RetrofitNetwork;
 
 public class InitialActivity extends AppCompatActivity {
-    private RetrofitNetwork retrofitNetwork;
+    public static final RetrofitNetwork retrofitNetwork = new RetrofitNetwork();
     private Button buttonSignIn;
     private Button buttonLogIn;
     private EditText emailText;
@@ -33,7 +33,7 @@ public class InitialActivity extends AppCompatActivity {
     void componentsInitialization() {
         emailText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.idText);
-        retrofitNetwork = new RetrofitNetwork();
+        //retrofitNetwork = new RetrofitNetwork();
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
     }
