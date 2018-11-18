@@ -1,10 +1,12 @@
-package escuelaing.com.co.bowmobileapp;
+package escuelaing.com.co.bowmobileapp.data.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import escuelaing.com.co.bowmobileapp.R;
 
 public class SignInActivity extends AppCompatActivity {
 

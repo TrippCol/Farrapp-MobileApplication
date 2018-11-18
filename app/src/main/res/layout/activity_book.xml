@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/yellow"
-    tools:context=".BookActivity">
+    tools:context=".data.ui.BookActivity">
 
     <Button
         android:id="@+id/buttonBack2"

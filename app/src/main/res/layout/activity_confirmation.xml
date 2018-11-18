@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bstract"
-    tools:context=".ConfirmationActivity">
+    tools:context=".data.ui.ConfirmationActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="321dp"

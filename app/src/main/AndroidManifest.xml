@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="escuelaing.com.co.bowmobileapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -11,23 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".InitialActivity">
+        <activity android:name=".data.ui.InitialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".PartyListActivity" />
-        <activity android:name=".PartyActivity" />
-        <activity android:name=".BookActivity" />
+        <activity android:name=".data.ui.SignInActivity" />
+        <activity android:name=".data.ui.PartyListActivity" />
+        <activity android:name=".data.ui.PartyActivity" />
+        <activity android:name=".data.ui.BookActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ConfirmationActivity"></activity>
+        <activity android:name=".data.ui.ConfirmationActivity"></activity>
     </application>
 
 </manifest>
