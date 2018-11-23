@@ -13,7 +13,6 @@ import java.util.Map;
 
 import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
-import escuelaing.com.co.bowmobileapp.data.entities.Token;
 import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
 import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
 
@@ -24,7 +23,7 @@ public class PartyListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_party_list);
+        setContentView(R.layout.listed_parties);
         componentsInitialization();
         actionListenersInitialization();
         setPartiesFromServer();
