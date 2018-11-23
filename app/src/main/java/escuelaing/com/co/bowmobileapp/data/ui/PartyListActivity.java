@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,11 +28,14 @@ public class PartyListActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
 
+    Toolbar toolBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_demo);
+
         setViewComponents();
         setRecyclerViewComponents();
 
@@ -39,14 +44,29 @@ public class PartyListActivity extends AppCompatActivity {
 
     private void setViewComponents() {
         parties = (List<Party>) getIntent().getSerializableExtra("parties");
+        toolBar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(toolBar);
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     private void setRecyclerViewComponents() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new RecyclerAdapter(parties);
         recyclerView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menu){
+        if(menu.getItemId() ==  android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(menu);
     }
 
 
