@@ -1,8 +1,9 @@
 package escuelaing.com.co.bowmobileapp.data.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Party {
+public class Party implements Serializable {
     private Integer id;
     private String creator;
     private String partyName;
@@ -16,6 +17,7 @@ public class Party {
     private List<User> assistants;
     private List<String> categories;
 
+    public Party(){}
 
     public Integer getId() {
         return id;
