@@ -7,11 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 
+import java.util.List;
+
 import escuelaing.com.co.bowmobileapp.R;
+import escuelaing.com.co.bowmobileapp.data.entities.Party;
 
 public class PartyActivity extends AppCompatActivity {
     Button buttonBack;
     Button buttonBook;
+    private Party party;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     void componentsInitialization() {
+        party = (Party) getIntent().getSerializableExtra("party");
         buttonBack = (Button) findViewById((R.id.buttonBack));
         buttonBook = (Button) findViewById((R.id.bookButton));
         ScrollView sv = (ScrollView) findViewById(R.id.partyScrollView);

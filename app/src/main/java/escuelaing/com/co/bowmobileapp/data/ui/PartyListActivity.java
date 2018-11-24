@@ -1,11 +1,13 @@
 package escuelaing.com.co.bowmobileapp.data.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +29,6 @@ public class PartyListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
-
     Toolbar toolBar;
 
 
@@ -57,7 +58,16 @@ public class PartyListActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         adapter = new RecyclerAdapter(parties);
+        ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
+                intent.putExtra("party", parties.get(position));
+                startActivity(intent);
+            }
+        });
         recyclerView.setAdapter(adapter);
+        
 
     }
 
