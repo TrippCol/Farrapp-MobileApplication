@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -39,6 +40,7 @@ public class PartyListActivity extends AppCompatActivity {
 
         setViewComponents();
         setRecyclerViewComponents();
+        //actionListenersInitialization();
 
 
     }
@@ -54,6 +56,7 @@ public class PartyListActivity extends AppCompatActivity {
     }
 
     private void setRecyclerViewComponents() {
+        //partyRock = (Button) findViewById(R.id.partyButton);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -89,12 +92,6 @@ public class PartyListActivity extends AppCompatActivity {
 
     /*void actionListenersInitialization() {
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         partyRock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
