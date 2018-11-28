@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#008397</color>
     <color name="colorAccent">#828282</color>
     <color name="cardViewBackground">#81C784</color>
+    <color name="test">#645F5C</color>
 </resources>

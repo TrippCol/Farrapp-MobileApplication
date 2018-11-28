@@ -9,14 +9,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     
-    <style name="CustomToolbarStyle" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">@color/colorPrimaryDark</item>
+    <style name="CustomToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/test</item>
     </style>
 
-    <style name="CustomPopupStyle" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:overlapAnchor">false</item>
-        <item name="android:dropDownVerticalOffset">-40dp</item>
+    <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorAccent</item>
     </style>
 
 </resources>
