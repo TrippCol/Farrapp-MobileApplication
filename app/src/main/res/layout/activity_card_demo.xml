@@ -13,14 +13,11 @@
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/barLayout"
-        android:layout_centerHorizontal="true" />
+        app:theme = "@style/CustomToolbarStyle"
+        app:popupTheme = "@style/CustomPopUpStyle"
+        />
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
@@ -40,10 +37,6 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/barLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

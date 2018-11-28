@@ -38,9 +38,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        viewHolder.partyImage.setImageResource(R.drawable.party_image);
-        viewHolder.partyTitle.setText(parties.get(i).getPartyName());
-        viewHolder.partyDescription.setText(parties.get(i).getDescription());
+        Party party = parties.get(i);
+        if(party.getImageFileDrawable() == 0){
+            viewHolder.partyImage.setImageResource(R.drawable.party_image);
+        } else{
+            viewHolder.partyImage.setImageResource(party.getImageFileDrawable());
+        }
+        viewHolder.partyTitle.setText(party.getPartyName());
+        viewHolder.partyDescription.setText(party.getDescription());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){

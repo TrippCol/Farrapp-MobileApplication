@@ -18,7 +18,7 @@ public class RetrofitNetwork
         implements Network
 {
     //Corriendo el app desde localhost (cambiar la direccion ip por la direccion de localhost pero sin poner localhost o 127.0.0.1)
-    //private static final String BASE_URL = "http://192.168.0.3:8080/";
+    //private static final String BASE_URL = "http://ip_de_sus_maquinas/";
 
     //Conectandose al deploy de Heroku.
     private static final String BASE_URL = "https://farrapp-api.herokuapp.com";

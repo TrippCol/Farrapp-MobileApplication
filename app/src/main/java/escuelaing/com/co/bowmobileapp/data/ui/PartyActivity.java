@@ -7,7 +7,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -17,6 +21,8 @@ import escuelaing.com.co.bowmobileapp.data.entities.Party;
 public class PartyActivity extends AppCompatActivity {
     //Button buttonBack;
     Button buttonBook;
+    ImageView imagenFiesta;
+    TextView nombreFiesta;
     private Party party;
     private Toolbar toolBar;
 
@@ -29,6 +35,8 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     void componentsInitialization() {
+        imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
+        nombreFiesta = (TextView)findViewById(R.id.nombreFiesta);
         toolBar = (Toolbar) findViewById(R.id.app_bar_1);
         setSupportActionBar(toolBar);
         if(getSupportActionBar()!=null){
@@ -36,6 +44,8 @@ public class PartyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         party = (Party) getIntent().getSerializableExtra("party");
+        imagenFiesta.setImageResource(R.drawable.party_image);
+        nombreFiesta.setText(party.getPartyName());
         //buttonBack = (Button) findViewById((R.id.buttonBack));
         buttonBook = (Button) findViewById((R.id.bookButton));
         //ScrollView sv = (ScrollView) findViewById(R.id.partyScrollView);

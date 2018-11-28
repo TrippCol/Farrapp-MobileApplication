@@ -17,6 +17,12 @@ public class Party implements Serializable {
     private List<User> assistants;
     private List<String> categories;
 
+
+    //Desde la vista de administrador debe haber la opcion para que el admin cargue una imagen y se agregue a
+    //Drawables y se haga un set del numero asignado de drawable a este atributo para que desde esta vista pueda
+    //llamarlo usando findById(R.drawable.imageFileDrawable)
+    private int imageFileDrawable;
+
     public Party(){}
 
     public Integer getId() {
@@ -65,5 +71,13 @@ public class Party implements Serializable {
 
     public List<String> getCategories() {
         return categories;
+    }
+
+    public int getImageFileDrawable() {
+        return imageFileDrawable;
+    }
+
+    public void setImageFileDrawable(int imageFileDrawable) {
+        this.imageFileDrawable = imageFileDrawable;
     }
 }

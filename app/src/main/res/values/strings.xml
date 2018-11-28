@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BowMobileApp</string>
+    <string name="panelFiestas">Fiestas</string>
+    <string name="ProfileConfigurationMenuTittle">\"Configuracion\"</string>
 </resources>
