@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,6 +34,7 @@ public class PartyListActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
     Toolbar toolBar;
+    TextView mTitle;
 
 
     @Override
@@ -50,8 +52,11 @@ public class PartyListActivity extends AppCompatActivity {
     private void setViewComponents() {
         parties = (List<Party>) getIntent().getSerializableExtra("parties");
         toolBar = (Toolbar) findViewById(R.id.app_bar);
+        mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolBar);
-        getSupportActionBar().setTitle("Fiestas");
+        mTitle.setText("Fiestas");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //getSupportActionBar().setTitle("Fiestas");
         //getSupportActionBar().setLogo(R.drawable.final_bow_logo);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
