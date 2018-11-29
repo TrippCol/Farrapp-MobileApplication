@@ -1,6 +1,8 @@
 package escuelaing.com.co.bowmobileapp.data.ui;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,6 +38,40 @@ public class PartyListActivity extends AppCompatActivity {
     Toolbar toolBar;
     TextView mTitle;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.parties:
+                    parties = (List<Party>) getIntent().getSerializableExtra("parties");
+                    adapter = new RecyclerAdapter(parties);
+                    ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
+                            intent.putExtra("party", parties.get(position));
+                            startActivity(intent);
+                        }
+                    });
+                    recyclerView.setAdapter(adapter);
+                    return true;
+                case R.id.my_parties:
+                    parties = new ArrayList<>();
+                    parties.add(new Party(666, "Juan David Ramirez", "Escudos test", "Fiesta de graduados", "12/11/18", "21:00", "Cra 15 - #93", "Sutton club", 25000, "Reprogramada"));
+                    adapter = new RecyclerAdapter(parties);
+                    recyclerView.setAdapter(adapter);
+                    //parties = (List<Party>) getIntent().getSerializableExtra("myParties");
+                    return true;
+                case R.id.settings:
+                    //mTextMessage.setText(R.string.title_notifications);
+                    return true;
+            }
+            return false;
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +86,16 @@ public class PartyListActivity extends AppCompatActivity {
     }
 
     private void setViewComponents() {
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bar);
+        //System.out.println(findViewById(R.id.navigation_bar).getX());
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.isFocusedByDefault();
         parties = (List<Party>) getIntent().getSerializableExtra("parties");
         toolBar = (Toolbar) findViewById(R.id.app_bar);
         mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolBar);
         mTitle.setText("Fiestas");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //getSupportActionBar().setTitle("Fiestas");
-        //getSupportActionBar().setLogo(R.drawable.final_bow_logo);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);

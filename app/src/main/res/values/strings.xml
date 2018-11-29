@@ -3,4 +3,7 @@
     <string name="panelFiestas">Fiestas</string>
     <string name="ProfileConfigurationMenuTittle">Configuracion</string>
     <string name="ProfileLogoutMenuTittle">Cerrar sesion</string>
+    <string name="title_parties">Parties</string>
+    <string name="title_my_parties">My parties</string>
+    <string name="title_settings">Settings</string>
 </resources>

@@ -77,6 +77,19 @@ public class Party implements Serializable {
         return imageFileDrawable;
     }
 
+    public Party(Integer id, String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription) {
+        this.id = id;
+        this.creator = creator;
+        this.partyName = partyName;
+        this.description = description;
+        this.eventDate = eventDate;
+        this.eventHour = eventHour;
+        this.address = address;
+        this.place = place;
+        this.price = price;
+        this.optionalDescription = optionalDescription;
+    }
+
     public void setImageFileDrawable(int imageFileDrawable) {
         this.imageFileDrawable = imageFileDrawable;
     }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/parties"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_parties" />
+
+    <item
+        android:id="@+id/my_parties"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_my_parties" />
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/profile"
+        android:title="@string/title_settings" />
+
+</menu>
