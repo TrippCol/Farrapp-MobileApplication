@@ -64,9 +64,9 @@ public class PartyListActivity extends AppCompatActivity {
                     recyclerView.setAdapter(adapter);
                     //parties = (List<Party>) getIntent().getSerializableExtra("myParties");
                     return true;
-                case R.id.settings:
+                //case R.id.settings:
                     //mTextMessage.setText(R.string.title_notifications);
-                    return true;
+                    //return true;
             }
             return false;
         }
@@ -96,10 +96,12 @@ public class PartyListActivity extends AppCompatActivity {
         setSupportActionBar(toolBar);
         mTitle.setText("Fiestas");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        if(getSupportActionBar()!=null){
+
+        //BACK ARROW
+        /*if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+        }*/
     }
 
     private void setRecyclerViewComponents() {
@@ -128,10 +130,17 @@ public class PartyListActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
+    //BACK ARROW
     @Override
     public boolean onOptionsItemSelected(MenuItem menu){
-        if(menu.getItemId() ==  android.R.id.home){
+        /*if(menu.getItemId() ==  android.R.id.home){
             finish();
+        }*/
+        switch(menu.getItemId()){
+            case R.id.action_sign_out:
+                Intent intent = new Intent(this, InitialActivity.class);
+                startActivity(intent);
         }
         return super.onOptionsItemSelected(menu);
     }

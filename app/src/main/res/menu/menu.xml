@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_settings"
+    <!--item android:id="@+id/action_settings"
         android:title="@string/ProfileConfigurationMenuTittle"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/profile">
-    </item>
+        android:icon="@drawable/profile"-->
+    <!--/item-->
     <item android:id="@+id/action_sign_out"
         android:title="@string/ProfileLogoutMenuTittle"
         app:showAsAction="never">
