@@ -26,6 +26,7 @@ import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
 import escuelaing.com.co.bowmobileapp.data.network.RecyclerAdapter;
 import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
+import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class PartyListActivity extends AppCompatActivity {
     //Button buttonBack;
@@ -46,27 +47,27 @@ public class PartyListActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.parties:
-                    parties = (List<Party>) getIntent().getSerializableExtra("parties");
+                    parties = LocalStorage.getLoadedParties();
                     adapter = new RecyclerAdapter(parties);
                     ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
                         @Override
                         public void onItemClick(int position) {
                             Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                            intent.putExtra("party", parties.get(position));
+                            LocalStorage.setSelectedParty(parties.get(position));
                             startActivity(intent);
                         }
                     });
                     recyclerView.setAdapter(adapter);
                     return true;
                 case R.id.my_parties:
-                    parties = InitialActivity.getAccountUser().getMyParties();
+                    parties = LocalStorage.getAccountUser().getMyParties();
                     //parties.add(new Party(666, "Juan David Ramirez", "Escudos test", "Fiesta de graduados", "12/11/18", "21:00", "Cra 15 - #93", "Sutton club", 25000, "Reprogramada"));
                     adapter = new RecyclerAdapter(parties);
                     ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
                         @Override
                         public void onItemClick(int position) {
                             Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                            intent.putExtra("party", parties.get(position));
+                            LocalStorage.setSelectedParty(parties.get(position));
                             startActivity(intent);
                         }
                     });
@@ -99,7 +100,7 @@ public class PartyListActivity extends AppCompatActivity {
         //System.out.println(findViewById(R.id.navigation_bar).getX());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //navigation.isFocusedByDefault();
-        parties = (List<Party>) getIntent().getSerializableExtra("parties");
+        parties = LocalStorage.getLoadedParties();
         toolBar = (Toolbar) findViewById(R.id.app_bar);
         mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolBar);
@@ -123,7 +124,7 @@ public class PartyListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                intent.putExtra("party", parties.get(position));
+                LocalStorage.setSelectedParty(parties.get(position));
                 startActivity(intent);
             }
         });
@@ -148,28 +149,10 @@ public class PartyListActivity extends AppCompatActivity {
         }*/
         switch(menu.getItemId()){
             case R.id.action_sign_out:
+                LocalStorage.setAccountUser(null);
                 Intent intent = new Intent(this, InitialActivity.class);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(menu);
     }
-
-
-
-    /*void componentsInitialization() {
-        buttonBack = (Button) findViewById((R.id.buttonBack));
-        partyRock = (Button) findViewById(R.id.partyButton);
-
-    }*/
-
-    /*void actionListenersInitialization() {
-
-        partyRock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(PartyListActivity.this,PartyActivity.class );
-                startActivity(intent);
-            }
-        });
-    }*/
 }

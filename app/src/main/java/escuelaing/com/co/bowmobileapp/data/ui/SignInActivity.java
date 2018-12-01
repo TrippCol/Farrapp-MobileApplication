@@ -19,6 +19,7 @@ import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.User;
 import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
 import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
+import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class SignInActivity extends AppCompatActivity {
 
         User user= new User(email,name,id,password,confirmation);
 
-        InitialActivity.retrofitNetwork.addNewUser(user,new RequestCallback<User>() {
+        LocalStorage.retrofitNetwork.addNewUser(user,new RequestCallback<User>() {
             @Override
             public void onSuccess(User response) {
 

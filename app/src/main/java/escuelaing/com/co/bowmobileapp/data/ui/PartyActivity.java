@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import java.util.List;
 
 import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
+import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class PartyActivity extends AppCompatActivity {
     //Button buttonBack;
@@ -35,7 +38,7 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     void componentsInitialization() {
-        imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
+        //imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
         nombreFiesta = (TextView)findViewById(R.id.nombreFiesta);
         toolBar = (Toolbar) findViewById(R.id.app_bar_1);
         setSupportActionBar(toolBar);
@@ -43,31 +46,33 @@ public class PartyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-        party = (Party) getIntent().getSerializableExtra("party");
-        imagenFiesta.setImageResource(R.drawable.party_image);
+        party = LocalStorage.getSelectedParty();
+        //imagenFiesta.setImageResource(R.drawable.party_image);
         nombreFiesta.setText(party.getPartyName());
-        //buttonBack = (Button) findViewById((R.id.buttonBack));
         buttonBook = (Button) findViewById((R.id.bookButton));
-        //ScrollView sv = (ScrollView) findViewById(R.id.partyScrollView);
-        //sv.smoothScrollTo(0,300);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menu){
-        if(menu.getItemId() ==  android.R.id.home){
+        if(menu.getItemId() == android.R.id.home){
             finish();
+        }
+        else if(menu.getItemId() == R.id.action_sign_out){
+            LocalStorage.setAccountUser(null);
+            Intent intent = new Intent(this, InitialActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(menu);
     }
 
-    void actionListenersInitialization() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        /*buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });*/
+    void actionListenersInitialization() {
         buttonBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,4 +81,6 @@ public class PartyActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

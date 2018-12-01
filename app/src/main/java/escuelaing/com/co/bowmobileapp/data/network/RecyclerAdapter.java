@@ -15,6 +15,7 @@ import java.util.List;
 
 import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
+import escuelaing.com.co.bowmobileapp.data.ui.InitialActivity;
 import escuelaing.com.co.bowmobileapp.data.ui.PartyActivity;
 import escuelaing.com.co.bowmobileapp.data.ui.PartyListActivity;
 
@@ -40,10 +41,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Party party = parties.get(i);
         if(party.getImageFileDrawable() == 0){
-            viewHolder.partyImage.setImageResource(R.drawable.party_image);
-        } else{
-            viewHolder.partyImage.setImageResource(party.getImageFileDrawable());
+            party.setImageFileDrawable(R.drawable.party_image);
         }
+        viewHolder.partyImage.setImageResource(party.getImageFileDrawable());
         viewHolder.partyTitle.setText(party.getPartyName());
         viewHolder.partyDescription.setText(party.getDescription());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
