@@ -20,21 +20,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/logoBow"
-            android:layout_width="320dp"
-            android:layout_height="171dp"
+            android:layout_width="284dp"
+            android:layout_height="165dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bow32" />
+            app:srcCompat="@drawable/finalbow" />
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -195,7 +197,7 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardBackgroundColor="#a6f65f5f"
                     app:cardCornerRadius="18dp">
 
                     <LinearLayout
@@ -225,9 +227,9 @@
                             android:background="@drawable/urbon"
                             android:gravity="center"
                             android:text="Sign Up"
-                            android:textColor="@android:color/background_light"
+                            android:textColor="#F1EA94"
                             android:textSize="10sp"
-                            android:textStyle="normal"
+                            android:textStyle="normal|bold|italic"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
 

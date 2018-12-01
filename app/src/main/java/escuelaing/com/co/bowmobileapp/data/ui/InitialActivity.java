@@ -1,9 +1,13 @@
 package escuelaing.com.co.bowmobileapp.data.ui;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -104,9 +108,9 @@ public class InitialActivity extends AppCompatActivity {
 
             @Override
             public void onFailed(NetworkException e) {
-                e.printStackTrace();
-            }
+                e.printStackTrace(); }
         });
+        passwordText.setText("");
     }
 
 

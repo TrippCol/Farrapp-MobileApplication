@@ -6,6 +6,7 @@ import java.util.Map;
 import escuelaing.com.co.bowmobileapp.data.entities.LoginWrapper;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.entities.Token;
+import escuelaing.com.co.bowmobileapp.data.entities.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -18,4 +19,7 @@ interface NetworkService
 
     @GET( "parties")
     Call<Map<Integer,Party>> getParties();
+
+    @POST("/users")
+    Call<Void> addUser(@Body User user);
 }

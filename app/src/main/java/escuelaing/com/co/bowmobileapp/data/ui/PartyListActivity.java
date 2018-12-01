@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -76,8 +77,8 @@ public class PartyListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_demo);
 
+        setContentView(R.layout.activity_card_demo);
         setViewComponents();
         setRecyclerViewComponents();
         //actionListenersInitialization();
@@ -89,7 +90,7 @@ public class PartyListActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bar);
         //System.out.println(findViewById(R.id.navigation_bar).getX());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.isFocusedByDefault();
+        //navigation.isFocusedByDefault();
         parties = (List<Party>) getIntent().getSerializableExtra("parties");
         toolBar = (Toolbar) findViewById(R.id.app_bar);
         mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);

@@ -19,32 +19,29 @@
 
         <Button
             android:id="@+id/buttonBack"
-            android:layout_width="62dp"
-            android:layout_height="53dp"
+            android:layout_width="53dp"
+            android:layout_height="52dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/left_arrow"
             app:layout_constraintEnd_toStartOf="@+id/logoBow"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.444"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logoBow"
             android:layout_width="188dp"
-            android:layout_height="105dp"
+            android:layout_height="79dp"
             android:layout_marginEnd="96dp"
-            android:layout_marginRight="96dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bow32" />
+            app:srcCompat="@drawable/finalbow" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="844dp"
+            android:layout_height="827dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="84dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +57,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="12dp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -256,7 +253,7 @@
                                 android:background="@drawable/rectangle_button"
                                 android:text="Registrar"
                                 android:textAllCaps="true"
-                                android:textColor="#535353"
+                                android:textColor="#F1EF94"
                                 android:textSize="14sp"
                                 android:textStyle="normal|italic" />
                         </TableRow>

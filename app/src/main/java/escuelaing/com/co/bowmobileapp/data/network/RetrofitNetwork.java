@@ -1,5 +1,7 @@
 package escuelaing.com.co.bowmobileapp.data.network;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,7 @@ import java.util.concurrent.Executors;
 import escuelaing.com.co.bowmobileapp.data.entities.LoginWrapper;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.entities.Token;
+import escuelaing.com.co.bowmobileapp.data.entities.User;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -25,7 +28,7 @@ public class RetrofitNetwork
 
     private NetworkService networkService;
 
-    private ExecutorService backgroundExecutor = Executors.newFixedThreadPool( 1 );
+    private ExecutorService backgroundExecutor = Executors.newFixedThreadPool( 2 );
 
     public RetrofitNetwork()
     {
@@ -42,15 +45,20 @@ public class RetrofitNetwork
             @Override
             public void run()
             {
+
                 Call<Token> call = networkService.login( loginWrapper );
                 try
                 {
+
                     Response<Token> execute = call.execute();
                     requestCallback.onSuccess( execute.body() );
+
                 }
-                catch ( IOException e )
+                catch ( Exception e )
                 {
+                    Log.e("ABCD", "Error en Login");
                     requestCallback.onFailed( new NetworkException( null, e ) );
+
                 }
             }
         } );
@@ -70,12 +78,38 @@ public class RetrofitNetwork
                     Response<Map<Integer,Party>> execute = call.execute();
                     requestCallback.onSuccess( execute.body() );
                 }
-                catch ( IOException e )
+                catch ( Exception e )
                 {
                     requestCallback.onFailed( new NetworkException( null, e ) );
                 }
             }
         } );
     }
+
+    @Override
+    public void addNewUser(final User user, final RequestCallback<User> requestCallback ) {
+
+        backgroundExecutor.execute( new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                User myUser= user;
+                Call call = networkService.addUser(myUser);
+                try
+                {
+                    Response<User> execute = call.execute();
+                    requestCallback.onSuccess( execute.body() );
+                }
+                catch ( Exception e )
+                {
+                    Log.e("ABCD",e.toString());
+                    requestCallback.onFailed( new NetworkException( "Error añadiendo usuario", e ) );
+                }
+            }
+        } );
+    }
+
+
 
 }
