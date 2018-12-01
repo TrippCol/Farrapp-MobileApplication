@@ -18,8 +18,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitNetwork
-        implements Network
-{
+        implements Network {
     //Corriendo el app desde localhost (cambiar la direccion ip por la direccion de localhost pero sin poner localhost o 127.0.0.1)
     //private static final String BASE_URL = "http://ip_de_sus_maquinas/";
 
@@ -28,88 +27,102 @@ public class RetrofitNetwork
 
     private NetworkService networkService;
 
-    private ExecutorService backgroundExecutor = Executors.newFixedThreadPool( 2 );
+    private ExecutorService backgroundExecutor = Executors.newFixedThreadPool(2);
 
-    public RetrofitNetwork()
-    {
+    public RetrofitNetwork() {
         Retrofit retrofit =
-                new Retrofit.Builder().baseUrl( BASE_URL ).addConverterFactory( GsonConverterFactory.create() ).build();
-        networkService = retrofit.create( NetworkService.class );
+                new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        networkService = retrofit.create(NetworkService.class);
     }
 
     @Override
-    public void login(final LoginWrapper loginWrapper, final RequestCallback<Token> requestCallback )
-    {
-        backgroundExecutor.execute( new Runnable()
-        {
+    public void login(final LoginWrapper loginWrapper, final RequestCallback<Token> requestCallback) {
+        backgroundExecutor.execute(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
 
-                Call<Token> call = networkService.login( loginWrapper );
-                try
-                {
+                Call<Token> call = networkService.login(loginWrapper);
+                try {
 
                     Response<Token> execute = call.execute();
-                    requestCallback.onSuccess( execute.body() );
+                    requestCallback.onSuccess(execute.body());
 
-                }
-                catch ( Exception e )
-                {
+                } catch (Exception e) {
                     Log.e("ABCD", "Error en Login");
-                    requestCallback.onFailed( new NetworkException( null, e ) );
+                    requestCallback.onFailed(new NetworkException(null, e));
 
                 }
             }
-        } );
+        });
 
     }
 
     @Override
-    public void getParties(final RequestCallback<Map<Integer,Party>> requestCallback) {
-        backgroundExecutor.execute( new Runnable()
-        {
+    public void getParties(final RequestCallback<Map<Integer, Party>> requestCallback) {
+        backgroundExecutor.execute(new Runnable() {
             @Override
-            public void run()
-            {
-                Call<Map<Integer,Party>> call = networkService.getParties();
-                try
-                {
-                    Response<Map<Integer,Party>> execute = call.execute();
-                    requestCallback.onSuccess( execute.body() );
-                }
-                catch ( Exception e )
-                {
-                    requestCallback.onFailed( new NetworkException( null, e ) );
+            public void run() {
+                Call<Map<Integer, Party>> call = networkService.getParties();
+                try {
+                    Response<Map<Integer, Party>> execute = call.execute();
+                    requestCallback.onSuccess(execute.body());
+                } catch (Exception e) {
+                    requestCallback.onFailed(new NetworkException(null, e));
                 }
             }
-        } );
+        });
     }
 
     @Override
-    public void addNewUser(final User user, final RequestCallback<User> requestCallback ) {
-
-        backgroundExecutor.execute( new Runnable()
-        {
+    public void getUserParties(final String emailUser, final RequestCallback<List<Party>> requestCallback) {
+        backgroundExecutor.execute(new Runnable() {
             @Override
-            public void run()
-            {
-                User myUser= user;
+            public void run() {
+                Call<List<Party>> call = networkService.getUserParties(emailUser);
+                try {
+                    Response<List<Party>> execute = call.execute();
+                    requestCallback.onSuccess(execute.body());
+                } catch (Exception e) {
+                    requestCallback.onFailed(new NetworkException(null, e));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void addNewUser(final User user, final RequestCallback<User> requestCallback) {
+
+        backgroundExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                User myUser = user;
                 Call call = networkService.addUser(myUser);
-                try
-                {
+                try {
                     Response<User> execute = call.execute();
-                    requestCallback.onSuccess( execute.body() );
-                }
-                catch ( Exception e )
-                {
-                    Log.e("ABCD",e.toString());
-                    requestCallback.onFailed( new NetworkException( "Error añadiendo usuario", e ) );
+                    requestCallback.onSuccess(execute.body());
+                } catch (Exception e) {
+                    Log.e("ABCD", e.toString());
+                    requestCallback.onFailed(new NetworkException("Error añadiendo usuario", e));
                 }
             }
-        } );
+        });
     }
 
+    @Override
+    public void getUserByEmail(final String emailUser, final RequestCallback<User> requestCallback) {
+        backgroundExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                Call<User> call = networkService.getUserByEmail(emailUser);
+                try {
+                    Response<User> execute = call.execute();
+                    requestCallback.onSuccess(execute.body());
+                } catch (Exception e) {
+                    requestCallback.onFailed(new NetworkException(null, e));
+                }
+            }
+        });
+    }
 
 
 }

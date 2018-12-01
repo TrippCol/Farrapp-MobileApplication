@@ -22,6 +22,7 @@ import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.LoginWrapper;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.entities.Token;
+import escuelaing.com.co.bowmobileapp.data.entities.User;
 import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
 import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
 import escuelaing.com.co.bowmobileapp.data.network.RetrofitNetwork;
@@ -32,7 +33,7 @@ public class InitialActivity extends AppCompatActivity {
     private Button buttonLogIn;
     private EditText emailText;
     private EditText passwordText;
-
+    private static User accountUser;
     private List<Party> parties;
 
     @Override
@@ -94,13 +95,17 @@ public class InitialActivity extends AppCompatActivity {
     }
 
     private void credentialValidation() {
-        String email = emailText.getText().toString();
+        final String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         LoginWrapper loginWrapper = new LoginWrapper(email, password);
         retrofitNetwork.login(loginWrapper, new RequestCallback<Token>() {
             @Override
             public void onSuccess(Token response) {
                 System.out.println(response.getAccessToken());
+                //emailUser = email;
+                setProfileData();
+
+                System.out.println(accountUser.getMyParties().get(0).getDescription());
                 Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
                 intent.putExtra("parties", (Serializable) parties);
                 startActivity(intent);
@@ -111,6 +116,28 @@ public class InitialActivity extends AppCompatActivity {
                 e.printStackTrace(); }
         });
         passwordText.setText("");
+    }
+
+    private void setProfileData() {
+        retrofitNetwork.getUserByEmail(emailText.getText().toString(), new RequestCallback<User>(){
+            @Override
+            public void onSuccess(User user) {
+                accountUser = user;
+            }
+
+            @Override
+            public void onFailed(NetworkException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static User getAccountUser(){
+        return accountUser;
+    }
+
+    public void setAccountUser(User accountUser){
+        this.accountUser = accountUser;
     }
 
 

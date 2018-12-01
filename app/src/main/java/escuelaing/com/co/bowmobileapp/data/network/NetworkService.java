@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 interface NetworkService
 {
@@ -20,6 +21,14 @@ interface NetworkService
     @GET( "parties")
     Call<Map<Integer,Party>> getParties();
 
+    @GET( "users/{emailUser}/parties" )
+    Call<List<Party>> getUserParties(@Path("emailUser") String emailUser);
+
     @POST("/users")
     Call<Void> addUser(@Body User user);
+
+    @GET( "users/{emailUser}" )
+    Call<User> getUserByEmail(@Path("emailUser") String emailUser);
+
+
 }

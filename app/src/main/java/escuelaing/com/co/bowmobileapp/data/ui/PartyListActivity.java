@@ -59,9 +59,17 @@ public class PartyListActivity extends AppCompatActivity {
                     recyclerView.setAdapter(adapter);
                     return true;
                 case R.id.my_parties:
-                    parties = new ArrayList<>();
-                    parties.add(new Party(666, "Juan David Ramirez", "Escudos test", "Fiesta de graduados", "12/11/18", "21:00", "Cra 15 - #93", "Sutton club", 25000, "Reprogramada"));
+                    parties = InitialActivity.getAccountUser().getMyParties();
+                    //parties.add(new Party(666, "Juan David Ramirez", "Escudos test", "Fiesta de graduados", "12/11/18", "21:00", "Cra 15 - #93", "Sutton club", 25000, "Reprogramada"));
                     adapter = new RecyclerAdapter(parties);
+                    ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
+                            intent.putExtra("party", parties.get(position));
+                            startActivity(intent);
+                        }
+                    });
                     recyclerView.setAdapter(adapter);
                     //parties = (List<Party>) getIntent().getSerializableExtra("myParties");
                     return true;
