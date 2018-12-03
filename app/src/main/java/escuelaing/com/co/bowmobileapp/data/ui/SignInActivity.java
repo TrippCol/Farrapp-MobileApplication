@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,6 +27,8 @@ public class SignInActivity extends AppCompatActivity {
     Button buttonBack;
     Button signUpButton;
     EditText emailText, nameText,idText, passwordText,confirmPassText;
+    TextView dialogText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,22 +48,32 @@ public class SignInActivity extends AppCompatActivity {
         String password= passwordText.getText().toString();
         String confirmation= confirmPassText.getText().toString();
 
-        User user= new User(email,name,id,password,confirmation);
+        if (email==""||name==""||id==null||password==""||confirmation==""){
+            dialogText.setText("Datos incompletos o erroneos");
+        }
+        else if(!password.equals(confirmation)){
+            passwordText.setText("");
+            confirmPassText.setText("");
+            dialogText.setText("Las contraseñas no coinciden!");
+        }
+        else {
+            User user = new User(email, name, id, password, confirmation);
 
-        LocalStorage.retrofitNetwork.addNewUser(user,new RequestCallback<User>() {
-            @Override
-            public void onSuccess(User response) {
+            LocalStorage.retrofitNetwork.addNewUser(user, new RequestCallback<User>() {
+                @Override
+                public void onSuccess(User response) {
 
-                Intent intent= new Intent(SignInActivity.this,InitialActivity.class );
-                startActivity(intent);
-            }
+                    Intent intent = new Intent(SignInActivity.this, InitialActivity.class);
+                    startActivity(intent);
+                }
 
-            @Override
-            public void onFailed(NetworkException e) {
+                @Override
+                public void onFailed(NetworkException e) {
 
-                e.printStackTrace();
-            }
-        });
+                    e.printStackTrace();
+                }
+            });
+        }
 
     }
 
@@ -75,6 +88,7 @@ public class SignInActivity extends AppCompatActivity {
         idText=(EditText) findViewById(R.id.idText);
         passwordText=(EditText) findViewById(R.id.passwordText);
         confirmPassText=(EditText) findViewById(R.id.confirmPassText);
+        dialogText=(TextView) findViewById(R.id.dialogText);
 
     }
 

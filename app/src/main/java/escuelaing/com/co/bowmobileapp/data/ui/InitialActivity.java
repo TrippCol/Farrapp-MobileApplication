@@ -92,17 +92,16 @@ public class InitialActivity extends AppCompatActivity {
     }
 
     private void credentialValidation() {
-        final String email = emailText.getText().toString();
+        String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         LoginWrapper loginWrapper = new LoginWrapper(email, password);
         LocalStorage.retrofitNetwork.login(loginWrapper, new RequestCallback<Token>() {
             @Override
             public void onSuccess(Token response) {
-                System.out.println(response.getAccessToken());
+                Log.e("ABCD",response.getAccessToken());
                 //emailUser = email;
                 setProfileData();
-
-                System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
+                //System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
                 Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
                 startActivity(intent);
             }
