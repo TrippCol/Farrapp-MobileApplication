@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class PartyActivity extends AppCompatActivity {
     Button buttonBook;
     ImageView imagenFiesta;
     TextView nombreFiesta;
+    RatingBar ratingBar;
     private Party party;
     private Toolbar toolBar;
 
@@ -39,6 +41,7 @@ public class PartyActivity extends AppCompatActivity {
 
     void componentsInitialization() {
         //imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
+        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
         nombreFiesta = (TextView)findViewById(R.id.nombreFiesta);
         toolBar = (Toolbar) findViewById(R.id.app_bar_1);
         setSupportActionBar(toolBar);
@@ -47,6 +50,7 @@ public class PartyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         party = LocalStorage.getSelectedParty();
+        ratingBar.setRating(party.getRating());
         //imagenFiesta.setImageResource(R.drawable.party_image);
         nombreFiesta.setText(party.getPartyName());
         buttonBook = (Button) findViewById((R.id.bookButton));
