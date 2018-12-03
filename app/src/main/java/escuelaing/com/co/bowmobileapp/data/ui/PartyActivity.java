@@ -28,6 +28,11 @@ public class PartyActivity extends AppCompatActivity {
     ImageView imagenFiesta;
     TextView nombreFiesta;
     RatingBar ratingBar;
+    TextView partyDate;
+    TextView partyAddress;
+    TextView partyPlace;
+    TextView partyPrice;
+    TextView partyDescription;
     private Party party;
     private Toolbar toolBar;
 
@@ -41,6 +46,11 @@ public class PartyActivity extends AppCompatActivity {
 
     void componentsInitialization() {
         //imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
+        partyDescription = (TextView)findViewById(R.id.partyDesc);
+        partyPrice = (TextView)findViewById(R.id.partyPrice);
+        partyPlace = (TextView)findViewById(R.id.partyPlace);
+        partyAddress = (TextView)findViewById(R.id.partyAddress);
+        partyDate = (TextView)findViewById(R.id.partyDate);
         ratingBar = (RatingBar)findViewById(R.id.ratingBar);
         nombreFiesta = (TextView)findViewById(R.id.nombreFiesta);
         toolBar = (Toolbar) findViewById(R.id.app_bar_1);
@@ -50,6 +60,11 @@ public class PartyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         party = LocalStorage.getSelectedParty();
+        partyDescription.setText(party.getDescription());
+        partyPrice.setText("$" + party.getPrice() + " COP");
+        partyPlace.setText(party.getPlace());
+        partyAddress.setText(party.getAddress());
+        partyDate.setText(party.getEventDate());
         ratingBar.setRating(party.getRating());
         //imagenFiesta.setImageResource(R.drawable.party_image);
         nombreFiesta.setText(party.getPartyName());
