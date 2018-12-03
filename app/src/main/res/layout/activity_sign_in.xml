@@ -66,7 +66,7 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/normalSignUp"
                     android:layout_width="272dp"
-                    android:layout_height="192dp"
+                    android:layout_height="216dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
@@ -85,7 +85,7 @@
 
                     <TableLayout
                         android:layout_width="254dp"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -125,8 +125,9 @@
                                 android:layout_height="match_parent"
                                 android:backgroundTint="@android:color/black"
                                 android:ems="10"
+                                android:fontFamily="@font/montserrat"
                                 android:hint="Email"
-                                android:inputType="textEmailAddress"
+                                android:inputType="textAutoComplete|textEmailAddress"
                                 android:selectAllOnFocus="true"
                                 android:textColor="@android:color/black"
                                 android:textColorHint="@android:color/darker_gray"
@@ -145,31 +146,35 @@
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@android:color/black"
                                 android:ems="10"
-                                android:hint="Full Name"
+                                android:fontFamily="@font/montserrat"
+                                android:hint="Nombre Completo"
                                 android:inputType="textPersonName"
                                 android:textColor="@android:color/black"
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="14sp"
-                                android:typeface="sans" />
+                                android:typeface="monospace" />
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="118dp"
                             android:gravity="center">
 
                             <EditText
                                 android:id="@+id/idText"
                                 android:layout_width="222dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="46dp"
                                 android:backgroundTint="@android:color/black"
                                 android:ems="10"
-                                android:hint="Id"
+                                android:fontFamily="@font/montserrat"
+                                android:hint="Cédula"
                                 android:inputType="number"
+                                android:paddingTop="0dp"
+                                android:paddingBottom="8dp"
                                 android:textColor="@android:color/black"
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="14sp"
-                                android:typeface="sans" />
+                                android:typeface="monospace" />
                         </TableRow>
 
                     </TableLayout>
@@ -178,8 +183,8 @@
 
                 <android.support.v7.widget.CardView
                     android:id="@+id/passwordSignUp"
-                    android:layout_width="271dp"
-                    android:layout_height="161dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginEnd="6dp"
@@ -195,8 +200,10 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <TableLayout
-                        android:layout_width="260dp"
-                        android:layout_height="match_parent">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp">
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -211,7 +218,29 @@
                                 android:ems="10"
                                 android:hint="Password"
                                 android:inputType="textPassword"
-                                android:textColor="@android:color/black"
+                                android:textColor="@color/test"
+                                android:textColorHint="@android:color/darker_gray"
+                                android:textSize="14sp"
+                                android:textStyle="bold|italic"
+                                android:typeface="sans" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="41dp"
+                            android:gravity="center"
+                            android:paddingBottom="0dp">
+
+                            <EditText
+                                android:id="@+id/confirmPassText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@android:color/black"
+                                android:ems="10"
+                                android:hint="Re-type password"
+                                android:inputType="textPassword"
+                                android:textColor="@color/colorAccent"
                                 android:textColorHint="@android:color/darker_gray"
                                 android:textSize="14sp"
                                 android:textStyle="bold|italic"
@@ -222,22 +251,18 @@
                         <TableRow
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:paddingBottom="20dp">
+                            android:gravity="center">
 
-                            <EditText
-                                android:id="@+id/confirmPassText"
+                            <TextView
+                                android:id="@+id/dialogText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:backgroundTint="@android:color/black"
-                                android:ems="10"
-                                android:hint="Re-type password"
-                                android:inputType="textPassword"
-                                android:textColor="@android:color/black"
-                                android:textColorHint="@android:color/darker_gray"
-                                android:textSize="14sp"
-                                android:textStyle="bold|italic"
-                                android:typeface="sans" />
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="left|center_vertical"
+                                android:paddingBottom="5dp"
+                                android:textColor="#ff0000"
+                                android:textSize="10sp"
+                                android:textStyle="italic" />
 
                         </TableRow>
 

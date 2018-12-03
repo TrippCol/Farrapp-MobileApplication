@@ -26,15 +26,13 @@ import escuelaing.com.co.bowmobileapp.data.entities.User;
 import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
 import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
 import escuelaing.com.co.bowmobileapp.data.network.RetrofitNetwork;
+import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class InitialActivity extends AppCompatActivity {
-    public static final RetrofitNetwork retrofitNetwork = new RetrofitNetwork();
     private Button buttonSignIn;
     private Button buttonLogIn;
     private EditText emailText;
     private EditText passwordText;
-    private static User accountUser;
-    private List<Party> parties;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class InitialActivity extends AppCompatActivity {
     }
 
     private void setPartiesFromServer() {
-        InitialActivity.retrofitNetwork.getParties(new RequestCallback<Map<Integer,Party>>() {
+        LocalStorage.retrofitNetwork.getParties(new RequestCallback<Map<Integer,Party>>() {
             @Override
             public void onSuccess(Map<Integer,Party> response) {
                 //for(Integer p: response.keySet()){
@@ -55,9 +53,9 @@ public class InitialActivity extends AppCompatActivity {
                 //}
                 Collection partiesValues = response.values();
                 if (partiesValues instanceof List)
-                    parties = (List)partiesValues;
+                    LocalStorage.setLoadedParties((List)partiesValues );
                 else
-                    parties = new ArrayList(partiesValues);
+                    LocalStorage.setLoadedParties( new ArrayList(partiesValues) );
             }
 
             @Override
@@ -70,7 +68,6 @@ public class InitialActivity extends AppCompatActivity {
     void componentsInitialization() {
         emailText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.idText);
-        //retrofitNetwork = new RetrofitNetwork();
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
     }
@@ -95,19 +92,17 @@ public class InitialActivity extends AppCompatActivity {
     }
 
     private void credentialValidation() {
-        final String email = emailText.getText().toString();
+        String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         LoginWrapper loginWrapper = new LoginWrapper(email, password);
-        retrofitNetwork.login(loginWrapper, new RequestCallback<Token>() {
+        LocalStorage.retrofitNetwork.login(loginWrapper, new RequestCallback<Token>() {
             @Override
             public void onSuccess(Token response) {
-                System.out.println(response.getAccessToken());
+                Log.e("ABCD",response.getAccessToken());
                 //emailUser = email;
                 setProfileData();
-
-                System.out.println(accountUser.getMyParties().get(0).getDescription());
+                //System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
                 Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
-                intent.putExtra("parties", (Serializable) parties);
                 startActivity(intent);
             }
 
@@ -115,14 +110,13 @@ public class InitialActivity extends AppCompatActivity {
             public void onFailed(NetworkException e) {
                 e.printStackTrace(); }
         });
-        passwordText.setText("");
     }
 
     private void setProfileData() {
-        retrofitNetwork.getUserByEmail(emailText.getText().toString(), new RequestCallback<User>(){
+        LocalStorage.retrofitNetwork.getUserByEmail(emailText.getText().toString(), new RequestCallback<User>(){
             @Override
             public void onSuccess(User user) {
-                accountUser = user;
+                LocalStorage.setAccountUser( user );
             }
 
             @Override
@@ -130,14 +124,6 @@ public class InitialActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
-    }
-
-    public static User getAccountUser(){
-        return accountUser;
-    }
-
-    public void setAccountUser(User accountUser){
-        this.accountUser = accountUser;
     }
 
 
