@@ -25,7 +25,7 @@
 
         <ImageView
             android:id="@+id/logoBow"
-            android:layout_width="284dp"
+            android:layout_width="401dp"
             android:layout_height="165dp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"

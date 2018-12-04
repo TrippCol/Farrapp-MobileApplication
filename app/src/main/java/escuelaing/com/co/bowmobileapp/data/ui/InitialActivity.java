@@ -41,6 +41,7 @@ public class InitialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         componentsInitialization();
+
         actionListenersInitialization();
         setPartiesFromServer();
 
@@ -73,7 +74,7 @@ public class InitialActivity extends AppCompatActivity {
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
         //alertText= (TextView) findViewById((R.id.alertText));
-        alertText.setText("");
+        //alertText.setText("");
     }
 
     void actionListenersInitialization() {
