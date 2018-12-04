@@ -25,7 +25,7 @@ public class LocalStorage {
     }
 
     public static void setAccountUser(User accountUser) {
-        LocalStorage.publicUser=new User(accountUser.getEmail(),accountUser.getName(), accountUser.getId(),"","");
+        //LocalStorage.publicUser=new User(accountUser.getEmail(),accountUser.getName(), accountUser.getId(),"","");
         LocalStorage.accountUser = accountUser;
     }
 
