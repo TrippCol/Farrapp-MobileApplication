@@ -102,7 +102,12 @@ public class InitialActivity extends AppCompatActivity {
                 //emailUser = email;
                 setProfileData();
                 //System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
-                Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
+                Intent intent;
+                if (LocalStorage.getAccountUser().getType().equals("User")) {
+                    intent = new Intent(InitialActivity.this,PartyListActivity.class );
+                } else {
+                    intent = new Intent(InitialActivity.this,CreatorsActivity.class );
+                }
                 startActivity(intent);
             }
 
