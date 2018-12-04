@@ -9,6 +9,13 @@
     app:popupTheme="@style/CustomPopupStyle"
     >
 
+    <ImageView
+        android:id="@+id/toolbar_logo"
+        android:layout_width="385dp"
+        android:layout_height="32dp"
+        android:src="@drawable/finalbow"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/toolbar_title"
         style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
