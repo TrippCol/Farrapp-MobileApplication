@@ -72,7 +72,7 @@ public class InitialActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.idText);
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
-        alertText= (TextView) findViewById((R.id.alertText));
+        //alertText= (TextView) findViewById((R.id.alertText));
         alertText.setText("");
     }
 
@@ -108,7 +108,12 @@ public class InitialActivity extends AppCompatActivity {
                 setProfileData();
 
                 //System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
-                Intent intent= new Intent(InitialActivity.this,PartyListActivity.class );
+                Intent intent;
+                if (LocalStorage.getAccountUser().getType().equals("User")) {
+                    intent = new Intent(InitialActivity.this,PartyListActivity.class );
+                } else {
+                    intent = new Intent(InitialActivity.this,CreatorsActivity.class );
+                }
                 startActivity(intent);
             }
             @Override

@@ -29,7 +29,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".data.ui.ConfirmationActivity"></activity>
+        <activity android:name=".data.ui.ConfirmationActivity" />
+        <activity android:name=".data.ui.CreatorsActivity"></activity>
     </application>
 
 </manifest>
