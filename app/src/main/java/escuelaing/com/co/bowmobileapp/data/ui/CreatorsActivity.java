@@ -58,9 +58,9 @@ public class CreatorsActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         parties = LocalStorage.getLoadedParties();
         toolBar = (Toolbar) findViewById(R.id.app_bar);
-        mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
+        //mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolBar);
-        mTitle.setText("Fiestas");
+        //mTitle.setText("Fiestas");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 

@@ -58,6 +58,8 @@ public class PartyActivity extends AppCompatActivity {
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayShowCustomEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
         party = LocalStorage.getSelectedParty();
         partyDescription.setText(party.getDescription());

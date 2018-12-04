@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_bar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="?attr/actionBarSize"
     android:theme="@style/CustomToolbarStyle"
     app:popupTheme="@style/CustomPopupStyle"
     >
@@ -14,14 +14,8 @@
         android:layout_width="385dp"
         android:layout_height="32dp"
         android:src="@drawable/finalbow"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/toolbar_title"
-        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center_vertical"/>
+        android:layout_marginEnd="?android:attr/actionBarSize"
+        />
 
 </android.support.v7.widget.Toolbar>
