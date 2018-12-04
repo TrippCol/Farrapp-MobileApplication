@@ -30,5 +30,8 @@ interface NetworkService
     @GET( "users/{emailUser}" )
     Call<User> getUserByEmail(@Path("emailUser") String emailUser);
 
+    @POST("parties/party/{idParty}")
+    Call<Void> bookUserIntoParty(@Body User user,@Path("idParty") Integer idParty);
+
 
 }

@@ -10,6 +10,7 @@ public class LocalStorage {
     private static List<Party> loadedParties;
     private static Party selectedParty;
     private static User accountUser;
+    private static User publicUser;
     public static final RetrofitNetwork retrofitNetwork = new RetrofitNetwork();
 
     public static List<Party> getLoadedParties() {
@@ -24,6 +25,7 @@ public class LocalStorage {
     }
 
     public static void setAccountUser(User accountUser) {
+        LocalStorage.publicUser=new User(accountUser.getEmail(),accountUser.getName(), accountUser.getId(),"","");
         LocalStorage.accountUser = accountUser;
     }
 
@@ -34,6 +36,7 @@ public class LocalStorage {
     public static void setSelectedParty(Party selectedParty) {
         LocalStorage.selectedParty = selectedParty;
     }
+    public static User getPublicUser(){return publicUser;}
 
     public static RetrofitNetwork getRetrofitNetwork() {
         return retrofitNetwork;

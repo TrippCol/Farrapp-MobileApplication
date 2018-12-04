@@ -69,6 +69,7 @@ public class PartyListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
+                Log.e("ABCD", parties.get(position).getId().toString());
                 LocalStorage.setSelectedParty(parties.get(position));
                 startActivity(intent);
             }

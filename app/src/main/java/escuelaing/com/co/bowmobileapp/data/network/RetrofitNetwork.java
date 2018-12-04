@@ -134,5 +134,24 @@ public class RetrofitNetwork
         });
     }
 
+    @Override
+    public void bookUserInParty(final Integer idParty,final User user,  final RequestCallback<Void> requestCallback){
+        backgroundExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                Call<Void> call = networkService.bookUserIntoParty(user,idParty);
+
+                try {
+                    Response<Void> execute = call.execute();
+                    requestCallback.onSuccess(execute.body());
+                } catch (Exception e) {
+                    Log.e("ABCD", e.getMessage());
+                    requestCallback.onFailed(new NetworkException(null, e));
+                }
+            }
+        });
+
+    }
+
 
 }

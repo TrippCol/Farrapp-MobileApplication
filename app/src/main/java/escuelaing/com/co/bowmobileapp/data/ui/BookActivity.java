@@ -3,6 +3,7 @@ package escuelaing.com.co.bowmobileapp.data.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import escuelaing.com.co.bowmobileapp.R;
+import escuelaing.com.co.bowmobileapp.data.entities.User;
+import escuelaing.com.co.bowmobileapp.data.network.NetworkException;
+import escuelaing.com.co.bowmobileapp.data.network.RequestCallback;
+import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class BookActivity extends AppCompatActivity {
 
@@ -61,8 +66,22 @@ public class BookActivity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(BookActivity.this, ConfirmationActivity.class );
-                startActivity(intent);
+
+
+                LocalStorage.retrofitNetwork.bookUserInParty(LocalStorage.getSelectedParty().getId(),LocalStorage.getPublicUser(), new RequestCallback<Void>(){
+
+                    @Override
+                    public void onSuccess(Void response) {
+
+                        Intent intent= new Intent(BookActivity.this, ConfirmationActivity.class );
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailed(NetworkException e) {
+                        e.printStackTrace();
+                    }
+                });
             }
         });
     }
