@@ -1,6 +1,8 @@
 package escuelaing.com.co.bowmobileapp.data.network;
 
 import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import escuelaing.com.co.bowmobileapp.R;
 import escuelaing.com.co.bowmobileapp.data.entities.LoginWrapper;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.entities.Token;
@@ -45,13 +48,20 @@ public class RetrofitNetwork
                 try {
 
                     Response<Token> execute = call.execute();
-                    requestCallback.onSuccess(execute.body());
+                    if (execute.body()!=null) {
+                        requestCallback.onSuccess(execute.body());
+                    }
+                    else{
+                        throw new Exception();
+                    }
+
 
                 } catch (Exception e) {
-                    Log.e("ABCD", "Error en Login");
-                    requestCallback.onFailed(new NetworkException(null, e));
+
+                    requestCallback.onFailed(new NetworkException("Usuario o contraseña Incorrecta", e));
 
                 }
+
             }
         });
 

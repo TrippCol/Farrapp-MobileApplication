@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class InitialActivity extends AppCompatActivity {
     private Button buttonLogIn;
     private EditText emailText;
     private EditText passwordText;
+    TextView alertText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class InitialActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.idText);
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
+        alertText= (TextView) findViewById((R.id.alertText));
+        alertText.setText("");
     }
 
     void actionListenersInitialization() {
@@ -95,12 +99,14 @@ public class InitialActivity extends AppCompatActivity {
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
         LoginWrapper loginWrapper = new LoginWrapper(email, password);
+
         LocalStorage.retrofitNetwork.login(loginWrapper, new RequestCallback<Token>() {
             @Override
             public void onSuccess(Token response) {
                 Log.e("ABCD",response.getAccessToken());
                 //emailUser = email;
                 setProfileData();
+
                 //System.out.println(LocalStorage.getAccountUser().getMyParties().get(0).getDescription());
                 Intent intent;
                 if (LocalStorage.getAccountUser().getType().equals("User")) {
@@ -110,10 +116,10 @@ public class InitialActivity extends AppCompatActivity {
                 }
                 startActivity(intent);
             }
-
             @Override
             public void onFailed(NetworkException e) {
-                e.printStackTrace(); }
+                incorrectData();
+            }
         });
     }
 
@@ -129,6 +135,11 @@ public class InitialActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void incorrectData(){
+        //alertText.setText(charSequence);
+        Log.e("ABCD","Error en el login");
     }
 
 

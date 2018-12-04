@@ -48,13 +48,19 @@ public class SignInActivity extends AppCompatActivity {
         String password= passwordText.getText().toString();
         String confirmation= confirmPassText.getText().toString();
 
-        if (email==""||name==""||id==null||password==""||confirmation==""){
-            dialogText.setText("Datos incompletos o erroneos");
+        if (email.length()==0|| !email.contains("@")|| !email.contains(".")) {
+            dialogText.setText("Ingrese un correo válido");
         }
-        else if(!password.equals(confirmation)){
+        else if(name.length()==0|| !name.contains(" ")){
+            dialogText.setText("Ingrese su nombre completo");
+        }
+        else if(id==null||id.toString().length()<6){
+            dialogText.setText("Ingrese un documento válido");
+        }
+        else if(!password.equals(confirmation)||password.length()<5||confirmation.length()!=password.length()){
             passwordText.setText("");
             confirmPassText.setText("");
-            dialogText.setText("Las contraseñas no coinciden!");
+            dialogText.setText("Contraseña no válida!");
         }
         else {
             User user = new User(email, name, id, password, confirmation);
@@ -69,7 +75,6 @@ public class SignInActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailed(NetworkException e) {
-
                     e.printStackTrace();
                 }
             });
