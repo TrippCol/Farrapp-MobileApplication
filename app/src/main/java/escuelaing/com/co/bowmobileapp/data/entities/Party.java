@@ -16,6 +16,7 @@ public class Party implements Serializable {
     private String optionalDescription;
     private List<User> assistants;
     private List<String> categories;
+    private float rating = 3.5f;
 
 
     //Desde la vista de administrador debe haber la opcion para que el admin cargue una imagen y se agregue a
@@ -92,5 +93,13 @@ public class Party implements Serializable {
 
     public void setImageFileDrawable(int imageFileDrawable) {
         this.imageFileDrawable = imageFileDrawable;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

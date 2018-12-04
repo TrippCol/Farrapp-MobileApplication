@@ -48,31 +48,12 @@ public class PartyListActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.parties:
                     parties = LocalStorage.getLoadedParties();
-                    adapter = new RecyclerAdapter(parties);
-                    ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
-                        @Override
-                        public void onItemClick(int position) {
-                            Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                            LocalStorage.setSelectedParty(parties.get(position));
-                            startActivity(intent);
-                        }
-                    });
-                    recyclerView.setAdapter(adapter);
+                    setListToAdapter();
                     return true;
                 case R.id.my_parties:
                     parties = LocalStorage.getAccountUser().getMyParties();
                     //parties.add(new Party(666, "Juan David Ramirez", "Escudos test", "Fiesta de graduados", "12/11/18", "21:00", "Cra 15 - #93", "Sutton club", 25000, "Reprogramada"));
-                    adapter = new RecyclerAdapter(parties);
-                    ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
-                        @Override
-                        public void onItemClick(int position) {
-                            Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                            LocalStorage.setSelectedParty(parties.get(position));
-                            startActivity(intent);
-                        }
-                    });
-                    recyclerView.setAdapter(adapter);
-                    //parties = (List<Party>) getIntent().getSerializableExtra("myParties");
+                    setListToAdapter();
                     return true;
                 //case R.id.settings:
                     //mTextMessage.setText(R.string.title_notifications);
@@ -82,11 +63,23 @@ public class PartyListActivity extends AppCompatActivity {
         }
     };
 
+    private void setListToAdapter() {
+        adapter = new RecyclerAdapter(parties);
+        ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
+                LocalStorage.setSelectedParty(parties.get(position));
+                startActivity(intent);
+            }
+        });
+        recyclerView.setAdapter(adapter);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_card_demo);
         setViewComponents();
         setRecyclerViewComponents();
@@ -97,14 +90,12 @@ public class PartyListActivity extends AppCompatActivity {
 
     private void setViewComponents() {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bar);
-        //System.out.println(findViewById(R.id.navigation_bar).getX());
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        //navigation.isFocusedByDefault();
         parties = LocalStorage.getLoadedParties();
         toolBar = (Toolbar) findViewById(R.id.app_bar);
         mTitle = (TextView) toolBar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolBar);
-        mTitle.setText("Fiestas");
+        //mTitle.setText("Fiestas");
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //BACK ARROW
@@ -119,18 +110,7 @@ public class PartyListActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerAdapter(parties);
-        ((RecyclerAdapter) adapter).setOnClick(new RecyclerAdapter.OnItemClicked() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent= new Intent(getApplicationContext(),PartyActivity.class );
-                LocalStorage.setSelectedParty(parties.get(position));
-                startActivity(intent);
-            }
-        });
-        recyclerView.setAdapter(adapter);
-        
-
+        setListToAdapter();
     }
 
     @Override

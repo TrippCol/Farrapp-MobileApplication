@@ -10,7 +10,7 @@
     </style>
     
     <style name="CustomToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background">@color/test</item>
+        <item name="android:background">#DDDDDD</item>
     </style>
 
     <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
