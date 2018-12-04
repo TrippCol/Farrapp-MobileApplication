@@ -68,7 +68,7 @@ public class BookActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                LocalStorage.retrofitNetwork.bookUserInParty(LocalStorage.getSelectedParty().getId(),LocalStorage.getPublicUser(), new RequestCallback<Void>(){
+                LocalStorage.retrofitNetwork.bookUserInParty(LocalStorage.getSelectedParty().getId(),LocalStorage.getAccountUser(), new RequestCallback<Void>(){
 
                     @Override
                     public void onSuccess(Void response) {
