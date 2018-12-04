@@ -72,7 +72,7 @@ public class InitialActivity extends AppCompatActivity {
         passwordText = (EditText) findViewById(R.id.idText);
         buttonSignIn = (Button) findViewById((R.id.buttonSignUp));
         buttonLogIn = (Button) findViewById(R.id.buttonLogIn);
-        alertText= (TextView) findViewById((R.id.alertText));
+        //alertText= (TextView) findViewById((R.id.alertText));
         alertText.setText("");
     }
 
