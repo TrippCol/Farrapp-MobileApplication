@@ -19,7 +19,6 @@ public class LocalStorage {
     public static void setLoadedParties(List<Party> loadedParties) {
         LocalStorage.loadedParties = loadedParties;
     }
-
     public static User getAccountUser() {
         return accountUser;
     }
