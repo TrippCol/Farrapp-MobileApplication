@@ -6,16 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:theme="@style/CustomToolbarStyle"
-    app:popupTheme="@style/CustomPopupStyle"
-    >
+    app:popupTheme="@style/CustomPopupStyle">
 
-    <ImageView
-        android:id="@+id/toolbar_logo"
-        android:layout_width="385dp"
-        android:layout_height="32dp"
-        android:src="@drawable/finalbow"
-        android:layout_gravity="center"
-        android:layout_marginEnd="?android:attr/actionBarSize"
-        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <TextView
+            android:id="@+id/toolbar_tittle"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/toolbar_logo"
+            android:layout_width="385dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:src="@drawable/finalbow" />
+    </RelativeLayout>
+
 
 </android.support.v7.widget.Toolbar>
