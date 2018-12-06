@@ -153,5 +153,24 @@ public class RetrofitNetwork
 
     }
 
+    @Override
+    public void addNewParty(final Party myParty, final RequestCallback<Party> requestCallback) {
+
+        backgroundExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                Call call = networkService.addParty(myParty);
+                try {
+                    Response<User> execute = call.execute();
+                    requestCallback.onSuccess(null);
+                } catch (Exception e) {
+                    Log.e("ABCD", e.toString());
+                    requestCallback.onFailed(new NetworkException("Error añadiendo fiesta", e));
+                }
+            }
+        });
+    }
+
 
 }

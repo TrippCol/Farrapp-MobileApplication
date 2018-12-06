@@ -2,14 +2,19 @@ package escuelaing.com.co.bowmobileapp.data.ui;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.List;
 
@@ -25,6 +30,8 @@ public class CreatorsActivity extends AppCompatActivity {
 
     Toolbar toolBar;
 
+    CreatorsActivity selfAct;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -36,7 +43,7 @@ public class CreatorsActivity extends AppCompatActivity {
                     fragment = new CreatorPartyListFragment();
                     break;
                 case R.id.new_party:
-                    fragment = new NewPartyFragment();
+                    fragment = new NewPartyFragment(selfAct);
                     break;
             }
             return loadFragment(fragment);
@@ -47,6 +54,7 @@ public class CreatorsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_creators);
+        selfAct = this;
         loadFragment(new CreatorPartyListFragment());
         setViewComponents();
     }
@@ -89,6 +97,10 @@ public class CreatorsActivity extends AppCompatActivity {
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(menu);
+    }
+
+    public void cleanFormularyInfo(){
+        loadFragment(new NewPartyFragment(selfAct) );
     }
 
 }

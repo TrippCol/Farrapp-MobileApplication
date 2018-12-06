@@ -33,5 +33,6 @@ interface NetworkService
     @POST("parties/party/{idParty}")
     Call<Void> bookUserIntoParty(@Body User user,@Path("idParty") Integer idParty);
 
-
+    @POST("/parties")
+    Call<Void> addParty(@Body Party party);
 }

@@ -20,4 +20,6 @@ public interface Network
     void getUserByEmail(String emailUser, RequestCallback<User> requestCallback);
 
     void bookUserInParty(Integer idParty,User user, RequestCallback<Void> requestCallback);
+
+    void addNewParty(Party myParty, RequestCallback<Party> requestCallback);
 }
