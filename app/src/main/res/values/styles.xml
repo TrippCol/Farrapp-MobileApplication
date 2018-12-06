@@ -15,7 +15,8 @@
     </style>
 
     <style name="CustomPopupStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background">#000</item>
+        <item name="android:background">#FFF</item>
+        <item name="android:fontFamily">@font/bungee</item>
     </style>
 
 </resources>

@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import escuelaing.com.co.bowmobileapp.R;
+import escuelaing.com.co.bowmobileapp.data.entities.Item;
 import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
@@ -33,11 +34,13 @@ public class PartyActivity extends AppCompatActivity {
     //TextView partyPrice;
     //TextView partyDescription;
     private Party party;
+    private TextView dressCode;
+    private TextView minAge;
     private TextView partyName;
     private RatingBar barRating;
     private TextView partyCreator;
     private TextView partyCategories;
-    private TextView optionalDescription;
+    private TextView cartaDeProductos;
     private TextView barAddress;
     private TextView barName;
     private TextView partyDateAndTime;
@@ -74,7 +77,7 @@ public class PartyActivity extends AppCompatActivity {
         barRating = findViewById(R.id.barRating);
         partyCreator = findViewById(R.id.partyCreator);
         partyCategories = findViewById(R.id.partyCategories);
-        optionalDescription = findViewById(R.id.optionalDescription);
+        cartaDeProductos = findViewById(R.id.cartaDeProductos);
         barAddress = findViewById(R.id.barAddress);
         barName = findViewById(R.id.barName);
         partyDateAndTime = findViewById(R.id.partyDateAndTime);
@@ -86,12 +89,16 @@ public class PartyActivity extends AppCompatActivity {
         initToolbar();
         party = LocalStorage.getSelectedParty();
         buttonBook = findViewById((R.id.bookButton));
-
+        dressCode = findViewById(R.id.partyDresscode);
+        minAge = findViewById(R.id.minAge);
         partyName.setText(party.getPartyName());
         barRating.setRating(party.getRating());
         partyCreator.setText(party.getCreator());
         setCategoriesHashtags();
-        optionalDescription.setText(party.getOptionalDescription());
+        setProductPrices();
+
+        dressCode.setText(party.getDressCode());
+        minAge.setText("+" + party.getMinAge());
         barAddress.setText(party.getAddress());
         barName.setText(party.getPlace());
         partyDateAndTime.setText(party.getEventDate() + " " + party.getEventHour());
@@ -104,6 +111,13 @@ public class PartyActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void setProductPrices() {
+        for(Item i: party.getCartaDeProductos()){
+            cartaDeProductos.setText(cartaDeProductos.getText() + " -" + i.getName() + ": $" + i.getPrice() + " COP, ");
+        }
+        //cartaDeProductos.setText(party.getCartaDeProductos());
     }
 
     private void setCategoriesHashtags() {
