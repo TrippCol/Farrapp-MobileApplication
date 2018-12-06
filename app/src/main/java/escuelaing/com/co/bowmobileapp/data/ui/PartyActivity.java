@@ -100,7 +100,7 @@ public class PartyActivity extends AppCompatActivity {
         //partyDresscode.setText(party.getDresscode());
         partyImage.setImageResource(R.drawable.party_image);
         System.out.println(party.getPrice());
-        coverPrice.setText(String.valueOf(party.getPrice()));
+        coverPrice.setText("$" + party.getPrice() + " COP");
 
 
 

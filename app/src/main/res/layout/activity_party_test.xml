@@ -62,9 +62,12 @@
                 <TextView
                     android:id="@+id/partyName"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/bungee"
-                    android:textAllCaps="true" />
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    />
 
 
                 <LinearLayout
@@ -77,6 +80,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
                         android:text="Fecha: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textAllCaps="true" />
 
                     <TextView
@@ -86,6 +90,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textAllCaps="true" />
                 </LinearLayout>
 
@@ -107,6 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Precio: "
                         android:textAllCaps="true" />
 
@@ -114,6 +120,7 @@
                         android:id="@+id/coverPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textAllCaps="true" />
@@ -128,6 +135,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Dresscode: "
                         android:textAllCaps="true" />
@@ -136,6 +144,7 @@
                         android:id="@+id/partyDresscode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textAllCaps="true"
@@ -144,7 +153,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     android:orientation="horizontal">
@@ -152,6 +161,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Descripcion: "
                         android:textAllCaps="true" />
@@ -160,6 +170,7 @@
                         android:paddingBottom="20dp"
                         android:id="@+id/partyDescription"
                         android:layout_width="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textStyle="bold"
@@ -177,6 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Lugar: "
                         android:textAllCaps="true" />
 
@@ -184,6 +196,7 @@
                         android:paddingBottom="20dp"
                         android:id="@+id/barName"
                         android:layout_width="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
                         android:textStyle="bold"
@@ -198,6 +211,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Otros: "
                         android:textAllCaps="true" />
@@ -208,6 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold"
                         android:textAllCaps="true" />
                 </LinearLayout>
@@ -222,6 +237,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Categorias: "
                         android:textAllCaps="true" />
 
@@ -231,6 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold"
                         android:textAllCaps="true" />
                 </LinearLayout>
@@ -245,6 +262,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Organiza: "
                         android:textAllCaps="true" />
 
@@ -254,6 +272,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textStyle="bold"
                         android:textAllCaps="true" />
                 </LinearLayout>
