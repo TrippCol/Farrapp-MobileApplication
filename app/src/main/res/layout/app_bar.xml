@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:theme="@style/CustomToolbarStyle"
-    app:popupTheme="@style/CustomPopupStyle">
+    app:popupTheme="@style/CustomPopupStyle"
+    >
 
 
     <RelativeLayout

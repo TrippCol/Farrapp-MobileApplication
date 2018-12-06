@@ -1,300 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bkg"
-    tools:context=".data.ui.PartyActivity"
-    >
+    android:background="#000000"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/app_bar_1"
         layout="@layout/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingEnd="82dp"
-         />
+        android:layout_alignParentTop="true"/>
 
-    <LinearLayout
+
+        <Button
+            android:id="@+id/bookButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Reservar"
+            android:layout_alignParentBottom="true"/>
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar_1">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bookButton"
+        android:layout_below="@id/app_bar_1">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="347dp"
-            android:layout_height="475dp"
-            android:layout_gravity="center"
-            android:layout_margin="0dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginStart="8dp"
-            app:cardBackgroundColor="#d60077ff"
-            app:cardCornerRadius="50dp"
-            app:cardPreventCornerOverlap="false"
-            app:contentPadding="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/passwordSignUp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-            <TableLayout
-                android:layout_width="333dp"
-                android:layout_height="470dp"
-                android:gravity="top|center">
+            android:orientation="vertical"
+            tools:context=".data.ui.PartyActivity">
 
-                <TableRow
+
+            <ImageView
+                android:id="@+id/partyImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/party_image"
+                app:layout_constraintTop_toBottomOf="@+id/app_bar_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/empty_tall_divider"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingEnd="25dp"
+                android:paddingBottom="25dp"
+                android:showDividers="middle"
+                >
+
+                <TextView
+                    android:id="@+id/partyName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#96ffffff"
-                    android:gravity="center_horizontal">
+                    android:fontFamily="@font/bungee"
+                    android:textAllCaps="true" />
 
-                    <TextView
-                        android:id="@+id/nombreFiesta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="125dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/header_party"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="top|center_horizontal"
-                        android:text="Eci Super Party"
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:textSize="36sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
-                </TableRow>
-
-                <TableRow
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/partyDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Fecha: "
+                        android:textAllCaps="true" />
+
+                    <TextView
+
+                        android:id="@+id/partyDateAndTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:gravity="left|center"
-                        android:text="30 Noviembre 2018"
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </TableRow>
+                        android:textAllCaps="true" />
+                </LinearLayout>
 
-                <TableRow
+
+                <TextView
+                    android:id="@+id/barAddress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="left|center">
+                    android:fontFamily="@font/bungee"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/partyAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:gravity="left|center"
-                        android:text="Calle 205, autopista- Bogotá, Colombia "
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:textSize="14sp"
+                        android:fontFamily="@font/bungee"
+                        android:text="Precio: "
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:id="@+id/coverPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center">
-
-                    <TextView
-                        android:id="@+id/partyPlace"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:gravity="left|center"
-                        android:text="Escuela Colombiana de ingeniería Julio Garavito"
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </TableRow>
+                        android:textAllCaps="true" />
+                </LinearLayout>
 
-                <TableRow
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="left|center">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/partyPrice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="sans-serif-smallcaps"
-                            android:gravity="left|center"
-                            android:text="$10.000 COP"
-                            android:textAllCaps="false"
-                            android:textColor="#000000"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <RatingBar
-                            android:id="@+id/ratingBar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#8c008397"
-                            android:isIndicator="true"
-                            android:max="5"
-                            android:numStars="5"
-                            android:stepSize="0.5" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="156dp"
-                    android:gravity="left">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+>
 
                     <TextView
-                        android:id="@+id/partyDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/baumans"
-                        android:gravity="left|center"
-                        android:paddingBottom="20dp"
-                        android:text="Una increíble fiesta organizada por los estudiantes de ingeniería de sistemas de la universidad, la idea es unir a los estudiantes en actividades lúdicas, y recoger fondos para nuevos equipos."
-                        android:textAllCaps="false"
-                        android:textColor="#000000"
-                        android:textSize="12sp"
-                        android:textStyle="normal"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </TableRow>
+                        android:fontFamily="@font/bungee"
+                        android:text="Dresscode: "
+                        android:textAllCaps="true" />
 
-                <TableRow
+                    <TextView
+                        android:id="@+id/partyDresscode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textAllCaps="true"
+                        android:paddingBottom="20dp"/>
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:gravity="top|left">
+                    android:layout_height="wrap_content"
 
-                    <LinearLayout
+                    android:orientation="horizontal">
+
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee"
+                        android:text="Descripcion: "
+                        android:textAllCaps="true" />
 
-                        <TextView
-                            android:id="@+id/desc2Party"
-                            android:layout_width="145dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat"
-                            android:gravity="left|center"
-                            android:paddingBottom="20dp"
-                            android:text="      +12 Años"
-                            android:textAllCaps="false"
-                            android:textColor="#000000"
-                            android:textSize="18sp"
-                            android:textStyle="normal"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:paddingBottom="20dp"
+                        android:id="@+id/partyDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
 
-                        <Button
-                            android:id="@+id/bookButton"
-                            android:layout_width="200dp"
-                            android:layout_height="43dp"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/button_app"
-                            android:paddingBottom="10dp"
-                            android:paddingRight="10dp"
-                            android:text="Reservar"
-                            android:textAllCaps="true"
-                            android:textColor="@android:color/black"
-                            android:textSize="18sp"
-                            android:textStyle="normal|bold" />
+                        />
+                </LinearLayout>
 
-                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                </TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee"
+                        android:text="Lugar: "
+                        android:textAllCaps="true" />
 
-            </TableLayout>
+                    <TextView
+                        android:paddingBottom="20dp"
+                        android:id="@+id/barName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee"
+                        android:text="Otros: "
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:paddingBottom="20dp"
+                        android:id="@+id/optionalDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee"
+                        android:text="Categorias: "
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:paddingBottom="20dp"
+                        android:id="@+id/partyCategories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee"
+                        android:text="Organiza: "
+                        android:textAllCaps="true" />
+
+                    <TextView
+                        android:paddingBottom="20dp"
+                        android:id="@+id/partyCreator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:textStyle="bold"
+                        android:textAllCaps="true" />
+                </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/barRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:textAllCaps="true" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

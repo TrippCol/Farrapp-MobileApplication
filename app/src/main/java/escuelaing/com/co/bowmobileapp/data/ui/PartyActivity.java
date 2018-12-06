@@ -23,17 +23,28 @@ import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class PartyActivity extends AppCompatActivity {
-    //Button buttonBack;
     Button buttonBook;
-    ImageView imagenFiesta;
-    TextView nombreFiesta;
-    RatingBar ratingBar;
-    TextView partyDate;
-    TextView partyAddress;
-    TextView partyPlace;
-    TextView partyPrice;
-    TextView partyDescription;
+    //ImageView imagenFiesta;
+    //TextView nombreFiesta;
+    //RatingBar ratingBar;
+    //TextView partyDate;
+    //TextView partyAddress;
+    //TextView partyPlace;
+    //TextView partyPrice;
+    //TextView partyDescription;
     private Party party;
+    private TextView partyName;
+    private RatingBar barRating;
+    private TextView partyCreator;
+    private TextView partyCategories;
+    private TextView optionalDescription;
+    private TextView barAddress;
+    private TextView barName;
+    private TextView partyDateAndTime;
+    private TextView partyDescription;
+    private TextView partyDresscode;
+    private TextView coverPrice;
+    private ImageView partyImage;
     private Toolbar toolBar;
 
     @Override
@@ -45,15 +56,63 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     void componentsInitialization() {
-        //imagenFiesta = (ImageView)findViewById(R.id.imagenFiesta);
-        partyDescription = (TextView)findViewById(R.id.partyDesc);
-        partyPrice = (TextView)findViewById(R.id.partyPrice);
-        partyPlace = (TextView)findViewById(R.id.partyPlace);
-        partyAddress = (TextView)findViewById(R.id.partyAddress);
-        partyDate = (TextView)findViewById(R.id.partyDate);
-        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
-        nombreFiesta = (TextView)findViewById(R.id.nombreFiesta);
-        toolBar = (Toolbar) findViewById(R.id.app_bar_1);
+        viewComponentsInit();
+
+        //partyDescription.setText(party.getDescription());
+        //partyPrice.setText("$" + party.getPrice() + " COP");
+        //partyPlace.setText(party.getPlace());
+        //partyAddress.setText(party.getAddress());
+        //partyDate.setText(party.getEventDate());
+        //ratingBar.setRating(party.getRating());
+        //imagenFiesta.setImageResource(R.drawable.party_image);
+        //nombreFiesta.setText(party.getPartyName());
+
+    }
+
+    private void viewComponentsInit() {
+        partyName = findViewById(R.id.partyName);
+        barRating = findViewById(R.id.barRating);
+        partyCreator = findViewById(R.id.partyCreator);
+        partyCategories = findViewById(R.id.partyCategories);
+        optionalDescription = findViewById(R.id.optionalDescription);
+        barAddress = findViewById(R.id.barAddress);
+        barName = findViewById(R.id.barName);
+        partyDateAndTime = findViewById(R.id.partyDateAndTime);
+        partyDescription = findViewById(R.id.partyDescription);
+        partyDresscode = findViewById(R.id.partyDresscode);
+        partyImage = findViewById(R.id.partyImage);
+        coverPrice = findViewById(R.id.coverPrice);
+        toolBar = findViewById(R.id.app_bar_1);
+        initToolbar();
+        party = LocalStorage.getSelectedParty();
+        buttonBook = findViewById((R.id.bookButton));
+
+        partyName.setText(party.getPartyName());
+        barRating.setRating(party.getRating());
+        partyCreator.setText(party.getCreator());
+        setCategoriesHashtags();
+        optionalDescription.setText(party.getOptionalDescription());
+        barAddress.setText(party.getAddress());
+        barName.setText(party.getPlace());
+        partyDateAndTime.setText(party.getEventDate() + " " + party.getEventHour());
+        partyDescription.setText(party.getDescription());
+        //TODO
+        //partyDresscode.setText(party.getDresscode());
+        partyImage.setImageResource(R.drawable.party_image);
+        System.out.println(party.getPrice());
+        coverPrice.setText(String.valueOf(party.getPrice()));
+
+
+
+    }
+
+    private void setCategoriesHashtags() {
+        for(String s: party.getCategories()){
+            partyCategories.setText(partyCategories.getText() + " #" + s);
+        }
+    }
+
+    private void initToolbar() {
         setSupportActionBar(toolBar);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,16 +120,6 @@ public class PartyActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowCustomEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-        party = LocalStorage.getSelectedParty();
-        partyDescription.setText(party.getDescription());
-        partyPrice.setText("$" + party.getPrice() + " COP");
-        partyPlace.setText(party.getPlace());
-        partyAddress.setText(party.getAddress());
-        partyDate.setText(party.getEventDate());
-        ratingBar.setRating(party.getRating());
-        //imagenFiesta.setImageResource(R.drawable.party_image);
-        nombreFiesta.setText(party.getPartyName());
-        buttonBook = (Button) findViewById((R.id.bookButton));
     }
 
     @Override
