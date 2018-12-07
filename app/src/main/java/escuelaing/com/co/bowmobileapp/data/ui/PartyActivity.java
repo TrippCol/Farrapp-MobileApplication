@@ -127,6 +127,7 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
+        toolBar.setPopupTheme(R.style.CustomPopupDetailPartyView);
         setSupportActionBar(toolBar);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -141,10 +142,10 @@ public class PartyActivity extends AppCompatActivity {
         if(menu.getItemId() == android.R.id.home){
             finish();
         }
-        else if(menu.getItemId() == R.id.action_sign_out){
-            LocalStorage.setAccountUser(null);
-            Intent intent = new Intent(this, InitialActivity.class);
+        else if(menu.getItemId() == R.id.action_next){
+            Intent intent= new Intent(PartyActivity.this,BookActivity.class );
             startActivity(intent);
+
         }
         return super.onOptionsItemSelected(menu);
     }
@@ -152,7 +153,7 @@ public class PartyActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_party_detail, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

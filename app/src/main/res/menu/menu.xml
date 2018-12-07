@@ -8,6 +8,7 @@
     <!--/item-->
     <item android:id="@+id/action_sign_out"
         android:title="@string/ProfileLogoutMenuTittle"
-        app:showAsAction="never">
+        app:showAsAction="never"
+        android:itemTextAppearance="@style/CustomPopupDetailPartyView">
     </item>
 </menu>
