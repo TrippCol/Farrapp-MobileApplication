@@ -24,7 +24,7 @@ import escuelaing.com.co.bowmobileapp.data.entities.Party;
 import escuelaing.com.co.bowmobileapp.data.persistence.LocalStorage;
 
 public class PartyActivity extends AppCompatActivity {
-    Button buttonBook;
+    //Button buttonBook;
     //ImageView imagenFiesta;
     //TextView nombreFiesta;
     //RatingBar ratingBar;
@@ -88,7 +88,7 @@ public class PartyActivity extends AppCompatActivity {
         toolBar = findViewById(R.id.app_bar_1);
         initToolbar();
         party = LocalStorage.getSelectedParty();
-        buttonBook = findViewById((R.id.bookButton));
+        //buttonBook = findViewById((R.id.bookButton));
         dressCode = findViewById(R.id.partyDresscode);
         minAge = findViewById(R.id.minAge);
         partyName.setText(party.getPartyName());
@@ -127,7 +127,7 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        toolBar.setPopupTheme(R.style.CustomPopupDetailPartyView);
+        //toolBar.setPopupTheme(R.style.CustomPopupDetailPartyView);
         setSupportActionBar(toolBar);
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -158,13 +158,13 @@ public class PartyActivity extends AppCompatActivity {
     }
 
     void actionListenersInitialization() {
-        buttonBook.setOnClickListener(new View.OnClickListener() {
+        /*buttonBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(PartyActivity.this,BookActivity.class );
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
 

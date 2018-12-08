@@ -5,6 +5,6 @@
     >
     <item android:id="@+id/action_next"
         android:title="@string/siguiente"
-        app:showAsAction="never">
+        app:showAsAction="ifRoom">
     </item>
 </menu>

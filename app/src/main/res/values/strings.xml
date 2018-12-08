@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bow!</string>
+    <string name="app_name">Bow</string>
     <string name="panelFiestas">Fiestas</string>
     <string name="ProfileConfigurationMenuTittle">Configuracion</string>
     <string name="ProfileLogoutMenuTittle">Cerrar sesion</string>

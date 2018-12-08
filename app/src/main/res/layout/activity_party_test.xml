@@ -7,20 +7,22 @@
 
     <include
         android:id="@+id/app_bar_1"
-        layout="@layout/app_bar_detail"
+        layout="@layout/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true" />
 
 
-        <Button
-            android:id="@+id/bookButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Reservar"
-            android:layout_alignParentBottom="true"/>
+    <android.support.design.widget.BottomNavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/navigation_bar_maps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:menu="@menu/navigation_maps">
 
+    </android.support.design.widget.BottomNavigationView>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -56,18 +58,16 @@
                 android:paddingLeft="25dp"
                 android:paddingEnd="25dp"
                 android:paddingBottom="25dp"
-                android:showDividers="middle"
-                >
+                android:showDividers="middle">
 
                 <TextView
                     android:id="@+id/partyName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bungee"
-                    android:textAllCaps="true"
                     android:gravity="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    />
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 
                 <LinearLayout
@@ -80,8 +80,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
                         android:text="Fecha: "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
 
@@ -89,9 +89,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
+                        android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textAllCaps="true" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -112,43 +112,42 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Precio: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
                         android:id="@+id/coverPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
->
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Dresscode: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
                         android:id="@+id/partyDresscode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:paddingBottom="20dp"
                         android:textAllCaps="true"
-                        android:paddingBottom="20dp"/>
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -161,20 +160,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Descripcion: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
-                        android:paddingBottom="20dp"
                         android:id="@+id/partyDescription"
                         android:layout_width="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
+                        android:paddingBottom="20dp"
                         android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"
 
                         />
                 </LinearLayout>
@@ -188,19 +187,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Lugar: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
-                        android:paddingBottom="20dp"
                         android:id="@+id/barName"
                         android:layout_width="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:textStyle="bold"
-                        android:textAllCaps="true" />
+                        android:paddingBottom="20dp"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -211,20 +210,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/bungee"
                         android:text="Carta: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
-                        android:paddingBottom="20dp"
                         android:id="@+id/cartaDeProductos"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:paddingBottom="20dp"
+                        android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
-                        android:textAllCaps="true" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -237,19 +236,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Categorias: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
-                        android:paddingBottom="20dp"
                         android:id="@+id/partyCategories"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:paddingBottom="20dp"
+                        android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
-                        android:textAllCaps="true" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
 
@@ -262,19 +261,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bungee"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="Organiza: "
-                        android:textAllCaps="true" />
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <TextView
-                        android:paddingBottom="20dp"
                         android:id="@+id/partyCreator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
+                        android:paddingBottom="20dp"
+                        android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textStyle="bold"
-                        android:textAllCaps="true" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
