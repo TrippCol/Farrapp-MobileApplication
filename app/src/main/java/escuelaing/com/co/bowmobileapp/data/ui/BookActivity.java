@@ -66,7 +66,7 @@ public class BookActivity extends AppCompatActivity {
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //LocalStorage.getAccountUser().addParty(LocalStorage.getSelectedParty());
 
                 LocalStorage.retrofitNetwork.bookUserInParty(LocalStorage.getSelectedParty().getId(),LocalStorage.getAccountUser(), new RequestCallback<Void>(){
 

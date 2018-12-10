@@ -76,4 +76,8 @@ public class User {
     public void setMyParties(List<Party> myParties) {
         this.myParties = myParties;
     }
+
+    public void addParty(Party selectedParty) {
+        this.myParties.add(selectedParty);
+    }
 }
